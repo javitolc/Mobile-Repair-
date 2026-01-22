@@ -7,341 +7,286 @@
 
 <style>
 :root{
-  --bg-main:#080c1a;
-  --neon-blue:#00e5ff;
-  --neon-violet:#7c4dff;
-  --neon-green:#18ffb2;
-  --text-main:#eaf6ff;
-  --text-muted:#a8b2d1;
+  --bg:#080c1a;
+  --card:#0b1228;
+  --blue:#00e5ff;
+  --violet:#7c4dff;
+  --green:#18ffb2;
+  --text:#eaf6ff;
+  --muted:#a8b2d1;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI',system-ui,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif;}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 
-body{
-  background:var(--bg-main);
-  color:var(--text-main);
-  overflow-x:hidden;
-}
-
-/* ===== FONDO ===== */
+/* ===== BACKGROUND ===== */
 .background{
-  position:fixed;
-  inset:0;
+  position:fixed;inset:0;z-index:-1;
   background:
-    radial-gradient(circle at 15% 20%, rgba(0,229,255,.18), transparent 40%),
-    radial-gradient(circle at 85% 30%, rgba(124,77,255,.20), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(24,255,178,.14), transparent 50%);
-  animation:bgFloat 22s ease-in-out infinite alternate;
-  z-index:-1;
+    radial-gradient(circle at 20% 20%,rgba(0,229,255,.18),transparent 40%),
+    radial-gradient(circle at 80% 30%,rgba(124,77,255,.2),transparent 45%),
+    radial-gradient(circle at 50% 80%,rgba(24,255,178,.14),transparent 50%);
 }
 
-@keyframes bgFloat{
-  0%{filter:hue-rotate(0deg);}
-  100%{filter:hue-rotate(45deg);}
-}
-
-/* ===== MENU ===== */
-.menu-btn{
+/* ===== HEADER ===== */
+header{
   position:fixed;
-  top:22px;
-  right:22px;
-  width:32px;
-  height:24px;
+  top:0;left:0;right:0;
+  height:70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 25px;
+  background:rgba(8,12,26,.75);
+  backdrop-filter:blur(10px);
+  z-index:10;
+}
+
+.logo{
+  font-size:1.4rem;
+  letter-spacing:.08em;
+}
+
+.burger{
+  width:30px;
+  height:22px;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   cursor:pointer;
-  z-index:50;
 }
 
-.menu-btn span{
+.burger span{
   height:3px;
-  background:var(--neon-blue);
+  background:var(--text);
   border-radius:3px;
-  box-shadow:0 0 10px var(--neon-blue);
-  transition:.4s;
 }
 
-.menu-btn.active span:nth-child(1){
-  transform:rotate(45deg) translate(6px,6px);
-}
-.menu-btn.active span:nth-child(2){
-  opacity:0;
-}
-.menu-btn.active span:nth-child(3){
-  transform:rotate(-45deg) translate(6px,-6px);
-}
-
-.side-menu{
+/* ===== MENU ===== */
+.menu{
   position:fixed;
-  top:0;
-  right:-100%;
-  width:260px;
-  height:100vh;
-  background:linear-gradient(180deg,#0b1228,#060a16);
-  padding:90px 25px;
-  display:flex;
-  flex-direction:column;
-  gap:25px;
-  transition:.45s ease;
-  z-index:40;
+  top:0;right:-100%;
+  width:280px;height:100vh;
+  background:#060a16;
+  padding:100px 30px;
+  transition:.4s ease;
+  z-index:9;
 }
 
-.side-menu a{
-  color:var(--text-main);
-  text-decoration:none;
+.menu.active{right:0;}
+
+.menu a{
+  display:block;
+  margin-bottom:25px;
   font-size:1.1rem;
+  text-decoration:none;
+  color:var(--text);
+  opacity:.85;
 }
 
-.side-menu a:hover{
-  color:var(--neon-green);
-  text-shadow:0 0 10px var(--neon-green);
-}
+.menu a:hover{color:var(--blue);}
 
-.side-menu.active{
-  right:0;
-}
-
-/* ===== PAGINAS ===== */
-.page{
-  display:none;
+/* ===== HOME ===== */
+.home{
   min-height:100vh;
-  padding:80px 20px;
-  animation:fadePage .4s ease;
-}
-
-.page.active{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  padding:140px 20px 80px;
   text-align:center;
 }
 
-@keyframes fadePage{
-  from{opacity:0; transform:translateY(15px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* ===== HOME ===== */
 .home h1{
   font-size:3.2rem;
-  text-shadow:0 0 20px rgba(0,229,255,.8);
+  letter-spacing:.12em;
+  position:relative;
 }
 
-.home-sub{
-  margin-top:15px;
-  font-size:1.2rem;
-  color:var(--text-muted);
+.home h1::after{
+  content:'';
+  position:absolute;
+  inset:-30px;
+  background:radial-gradient(circle,rgba(0,229,255,.25),transparent 70%);
+  z-index:-1;
 }
 
-.home-icons{
-  margin:25px 0;
+.home p{
+  margin-top:20px;
+  color:var(--muted);
+  font-size:1.1rem;
+}
+
+.divider{
+  width:60px;height:2px;
+  margin:30px auto;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent);
+}
+
+.values{
   display:flex;
-  gap:20px;
-  font-size:2.1rem;
-}
-
-.home-icons span{
-  animation:floatIcon 4s ease-in-out infinite;
-}
-
-.home-icons span:nth-child(2){animation-delay:.5s;}
-.home-icons span:nth-child(3){animation-delay:1s;}
-.home-icons span:nth-child(4){animation-delay:1.5s;}
-
-@keyframes floatIcon{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-}
-
-.home-tags{
-  font-size:.95rem;
-  color:var(--text-muted);
+  justify-content:center;
+  gap:35px;
+  margin-top:20px;
+  font-size:.9rem;
+  letter-spacing:.12em;
+  opacity:.75;
 }
 
 .home-btn{
-  margin-top:25px;
-  padding:12px 30px;
+  display:inline-block;
+  margin-top:45px;
+  padding:14px 34px;
   border-radius:30px;
-  background:linear-gradient(120deg,var(--neon-blue),var(--neon-violet));
+  background:linear-gradient(120deg,var(--blue),var(--violet));
   color:#000;
-  font-weight:600;
   text-decoration:none;
-  box-shadow:0 0 25px rgba(0,229,255,.6);
+  font-weight:500;
 }
 
-.home-hint{
-  margin-top:40px;
-  font-size:.8rem;
-  color:var(--text-muted);
-  opacity:.6;
+.signature{
+  margin-top:60px;
+  font-size:.75rem;
+  opacity:.5;
+  letter-spacing:.15em;
 }
 
-/* ===== SECCIONES ===== */
-.section-title{
-  font-size:2.2rem;
-  margin-bottom:35px;
-  text-shadow:0 0 12px rgba(0,229,255,.6);
+/* ===== SECTIONS ===== */
+section{
+  padding:90px 20px;
 }
 
+section h2{
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:40px;
+}
+
+/* ===== CARDS ===== */
 .cards{
-  max-width:1000px;
+  max-width:1100px;
+  margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
 }
 
 .card{
-  background:linear-gradient(180deg,#121b3a,#0b1228);
+  background:linear-gradient(180deg,#121b3a,var(--card));
   border-radius:20px;
-  padding:22px;
-  box-shadow:0 20px 40px rgba(0,0,0,.6);
+  padding:30px;
+  box-shadow:0 20px 45px rgba(0,0,0,.6);
 }
 
-.back-btn{
-  margin-top:50px;
-  padding:10px 24px;
-  border:none;
-  border-radius:25px;
-  background:linear-gradient(120deg,var(--neon-blue),var(--neon-green));
-  font-weight:600;
-  cursor:pointer;
+.card h3{
+  margin-bottom:15px;
 }
 
-/* ===== WHATSAPP ===== */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:linear-gradient(120deg,#25d366,#18ffb2);
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1.6rem;
-  text-decoration:none;
-  color:#000;
-  box-shadow:0 0 25px rgba(37,211,102,.7);
-  z-index:60;
+.card p{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:.95rem;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#060a16;
+  padding:35px;
+  text-align:center;
+  font-size:.85rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+  .home h1{font-size:2.4rem;}
+  .values{flex-direction:column;gap:15px;}
 }
 </style>
 </head>
 
 <body>
-
 <div class="background"></div>
 
-<!-- MENU -->
-<div class="menu-btn" id="menuBtn">
-  <span></span><span></span><span></span>
-</div>
+<header>
+  <div class="logo">LC MOBILE</div>
+  <div class="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
 
-<nav class="side-menu" id="sideMenu">
-  <a onclick="openPage('servicio')">🔧 Servicio Técnico</a>
-  <a onclick="openPage('venta')">📱 Venta de Celulares</a>
-  <a onclick="openPage('accesorios')">🎧 Accesorios</a>
-  <a onclick="openPage('tv')">📺 TV Digital</a>
+<nav class="menu" id="menu">
+  <a href="#servicio">Servicio Técnico</a>
+  <a href="#venta">Venta de Celulares</a>
+  <a href="#accesorios">Accesorios</a>
+  <a href="#tv">TV Digital</a>
 </nav>
 
-<!-- HOME -->
-<section class="page home active" id="home">
-  <h1>LC Mobile</h1>
-  <p class="home-sub">Soluciones en tecnología</p>
+<section class="home">
+  <h1>LC MOBILE</h1>
+  <p>Tecnología confiable · Atención profesional</p>
 
-  <div class="home-icons">
-    <span>📱</span>
-    <span>🔧</span>
-    <span>🎧</span>
-    <span>📺</span>
+  <div class="divider"></div>
+
+  <div class="values">
+    <span>PRECISIÓN</span>
+    <span>CONFIANZA</span>
+    <span>EXPERIENCIA</span>
   </div>
 
-  <p class="home-tags">
-    Servicio Técnico · Venta · Accesorios · TV Digital
-  </p>
+  <a class="home-btn" href="https://wa.me/5492634307686">Agendar consulta</a>
 
-  <a class="home-btn" href="https://wa.me/5492634307686" target="_blank">
-    Contactanos por WhatsApp
-  </a>
-
-  <p class="home-hint">☰ Explorá nuestros servicios</p>
+  <div class="signature">TECNOLOGÍA & SERVICIO PROFESIONAL</div>
 </section>
 
-<!-- SERVICIO TECNICO -->
-<section class="page" id="servicio">
-  <h2 class="section-title">Servicio Técnico</h2>
+<section id="servicio">
+  <h2>Servicio Técnico</h2>
   <div class="cards">
-    <div class="card">📱 Cambio de pantallas</div>
-    <div class="card">🔋 Reemplazo de baterías</div>
-    <div class="card">⚡ Pin de carga</div>
-    <div class="card">💻 Software y formateo</div>
+    <div class="card">
+      <h3>Reparaciones Profesionales</h3>
+      <p>Diagnóstico preciso, repuestos de calidad y trabajo garantizado.</p>
+    </div>
+    <div class="card">
+      <h3>Software & Optimización</h3>
+      <p>Formateos, actualizaciones y solución de fallas.</p>
+    </div>
   </div>
-  <button class="back-btn" onclick="goHome()">⬅ Volver</button>
 </section>
 
-<!-- VENTA -->
-<section class="page" id="venta">
-  <h2 class="section-title">Venta de Celulares</h2>
+<section id="venta">
+  <h2>Venta de Celulares</h2>
   <div class="cards">
-    <div class="card">📱 Equipos nuevos</div>
-    <div class="card">♻ Usados garantizados</div>
-    <div class="card">🔓 Liberados</div>
+    <div class="card">
+      <h3>Nuevos y Usados</h3>
+      <p>Equipos seleccionados, liberados y con garantía.</p>
+    </div>
   </div>
-  <button class="back-btn" onclick="goHome()">⬅ Volver</button>
 </section>
 
-<!-- ACCESORIOS -->
-<section class="page" id="accesorios">
-  <h2 class="section-title">Accesorios</h2>
+<section id="accesorios">
+  <h2>Accesorios</h2>
   <div class="cards">
-    <div class="card">🎧 Auriculares</div>
-    <div class="card">🔌 Cargadores</div>
-    <div class="card">🛡 Fundas</div>
+    <div class="card">
+      <h3>Todo para tu equipo</h3>
+      <p>Fundas, cargadores, auriculares y protección.</p>
+    </div>
   </div>
-  <button class="back-btn" onclick="goHome()">⬅ Volver</button>
 </section>
 
-<!-- TV -->
-<section class="page" id="tv">
-  <h2 class="section-title">TV Digital</h2>
+<section id="tv">
+  <h2>TV Digital</h2>
   <div class="cards">
-    <div class="card">📺 Instalación</div>
-    <div class="card">⚙ Configuración</div>
+    <div class="card">
+      <h3>Instalación y Soporte</h3>
+      <p>Soluciones en TV digital y configuración.</p>
+    </div>
   </div>
-  <button class="back-btn" onclick="goHome()">⬅ Volver</button>
 </section>
 
-<a class="whatsapp" href="https://wa.me/5492634307686" target="_blank">💬</a>
+<footer>
+  LC Mobile · WhatsApp · Instagram · Facebook
+</footer>
 
 <script>
-const pages = document.querySelectorAll('.page');
-const menuBtn = document.getElementById('menuBtn');
-const sideMenu = document.getElementById('sideMenu');
-
-function openPage(id){
-  pages.forEach(p => p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  menuBtn.classList.remove('active');
-  sideMenu.classList.remove('active');
+function toggleMenu(){
+  document.getElementById('menu').classList.toggle('active');
 }
-
-function goHome(){
-  pages.forEach(p => p.classList.remove('active'));
-  document.getElementById('home').classList.add('active');
-}
-
-menuBtn.addEventListener('click', ()=>{
-  menuBtn.classList.toggle('active');
-  sideMenu.classList.toggle('active');
-});
 </script>
-
 </body>
 </html>
+
