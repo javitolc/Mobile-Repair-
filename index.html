@@ -25,6 +25,7 @@ radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
 animation:bgMove 18s ease-in-out infinite alternate;}
 @keyframes bgMove{from{filter:hue-rotate(0deg);}to{filter:hue-rotate(40deg);}}
 
+/* Header */
 header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(8,12,26,.7);backdrop-filter:blur(14px);z-index:10;}
 .logo{font-size:1.4rem;letter-spacing:.15em;text-shadow:0 0 18px var(--blue),0 0 30px var(--violet);} 
 
@@ -55,7 +56,26 @@ section{padding:120px 20px;text-align:center;}
 
 /* Galería */
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:80px;max-width:1200px;margin-left:auto;margin-right:auto;}
-.gallery div{height:180px;border-radius:22px;background:linear-gradient(135deg,#121b3a,#0b1228);box-shadow:0 0 35px rgba(124,77,255,.35);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;}
+.gallery div{
+  height:180px;
+  border-radius:22px;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  box-shadow:0 0 35px rgba(124,77,255,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text);
+  font-size:.95rem;
+  font-weight:600;
+  text-shadow:0 0 6px rgba(0,0,0,.7);
+  transition: transform .35s, box-shadow .35s;
+}
+.gallery div:hover{
+  transform: translateY(-6px);
+  box-shadow:0 0 60px rgba(0,229,255,.7);
+}
 
 /* Texto institucional */
 .about{max-width:900px;margin:100px auto 0;line-height:1.8;color:var(--muted);font-size:1.05rem;}
@@ -99,10 +119,10 @@ footer a{color:var(--blue);text-decoration:none;margin:0 10px;}
 
 <section>
   <div class="gallery">
-    <div>Reparación de celulares</div>
-    <div>Venta de equipos</div>
-    <div>Accesorios</div>
-    <div>TV Digital</div>
+    <div style="background-image:url('foto1.jpg');">Reparación de celulares</div>
+    <div style="background-image:url('foto2.jpg');">Venta de equipos</div>
+    <div style="background-image:url('foto3.jpg');">Accesorios</div>
+    <div style="background-image:url('foto4.jpg');">TV Digital</div>
   </div>
 
   <div class="about">
