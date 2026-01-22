@@ -5,75 +5,102 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LC TECHNOLOGY</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg:#0b0f22;
   --blue:#00e5ff;
   --violet:#7c4dff;
-  --green:#18ffb2;
   --text:#eaf6ff;
-  --muted:#a8b2d1;
+  --muted:#9fb0d0;
 }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif;}
-body{background:var(--bg);color:var(--text);overflow-x:hidden;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Segoe UI',system-ui,sans-serif;
+}
 
 /* FONDO */
 .background{
-  position:fixed;inset:0;z-index:-1;
+  position:fixed;
+  inset:0;
+  z-index:-1;
   background:
-    radial-gradient(circle at 20% 20%, rgba(0,229,255,.18), transparent 40%),
-    radial-gradient(circle at 80% 30%, rgba(124,77,255,.18), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(24,255,178,.15), transparent 50%);
+    radial-gradient(circle at 25% 20%, rgba(0,229,255,.18), transparent 45%),
+    radial-gradient(circle at 75% 30%, rgba(124,77,255,.18), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(0,229,255,.12), transparent 55%);
 }
 
 /* HEADER */
 header{
-  position:fixed;top:0;left:0;right:0;
+  position:fixed;
+  top:0;left:0;right:0;
   height:72px;
-  display:flex;justify-content:space-between;align-items:center;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   padding:0 26px;
   background:rgba(11,15,34,.75);
   backdrop-filter:blur(14px);
   z-index:10;
 }
 
-.logo-container{display:flex;flex-direction:column;}
-
-.logo{
-  font-family:'Orbitron';
-  font-size:1.6rem;
-  letter-spacing:.28em;
-  color:#eaf6ff;
-  text-shadow:0 0 6px rgba(0,229,255,.7),0 0 14px rgba(124,77,255,.45);
+/* LOGO IZQUIERDO – MARCA */
+.logo-left{
+  display:flex;
+  flex-direction:column;
+  font-family:'Rajdhani',sans-serif;
 }
 
-.logo-sub{
-  font-size:.85rem;
-  letter-spacing:.18em;
-  color:#bfefff;
-  margin-top:4px;
-  text-shadow:0 0 6px rgba(0,229,255,.45);
+.logo-left .name{
+  font-size:1.45rem;
+  letter-spacing:.22em;
+  color:#ffffff;
 }
 
-.burger{width:34px;height:24px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}
-.burger span{height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));border-radius:4px;}
+.logo-left .tag{
+  font-size:.75rem;
+  letter-spacing:.25em;
+  color:var(--muted);
+  margin-top:2px;
+}
+
+/* BURGER */
+.burger{
+  width:32px;
+  height:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+}
+.burger span{
+  height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--violet));
+  border-radius:4px;
+}
 
 /* MENU */
 .menu{
-  position:fixed;top:0;right:-100%;
-  width:300px;height:100vh;
-  background:#060a16;
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:300px;
+  height:100vh;
+  background:#050914;
   padding:120px 30px;
   transition:.4s;
 }
 .menu.active{right:0;}
 .menu a{
-  display:block;margin-bottom:30px;
-  color:var(--text);text-decoration:none;font-size:1.1rem;
+  display:block;
+  margin-bottom:28px;
+  color:var(--text);
+  text-decoration:none;
+  font-size:1.05rem;
 }
 .menu a:hover{color:var(--blue);}
 
@@ -86,34 +113,30 @@ header{
   padding-top:120px;
 }
 
-.hero-logo{text-align:center;}
-
+/* LOGO CENTRAL – IMPACTO */
 .hero-title{
-  font-family:'Orbitron';
-  font-size:4.6rem;
-  letter-spacing:.4em;
+  font-family:'Orbitron',sans-serif;
+  font-size:4.8rem;
+  letter-spacing:.38em;
   color:#ffffff;
-  text-shadow:0 0 10px rgba(0,229,255,.6),0 0 22px rgba(124,77,255,.45);
-}
-
-.hero-sub{
-  margin-top:14px;
-  font-size:1.1rem;
-  letter-spacing:.35em;
-  color:#cfffff;
-  text-shadow:0 0 6px rgba(0,229,255,.45);
+  text-align:center;
+  text-shadow:
+    0 0 10px rgba(0,229,255,.55),
+    0 0 22px rgba(124,77,255,.45);
 }
 
 /* GALERIA */
-.services-gallery{padding:80px 20px;text-align:center;}
+.services-gallery{
+  padding:80px 20px;
+  text-align:center;
+}
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:28px;
+  gap:26px;
   max-width:1200px;
   margin:0 auto;
 }
-
 .service{
   height:180px;
   border-radius:22px;
@@ -122,16 +145,15 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 0 25px rgba(124,77,255,.3);
+  box-shadow:0 0 22px rgba(124,77,255,.28);
 }
-
 .service span{
   font-weight:600;
-  text-shadow:0 0 8px rgba(0,0,0,.8);
+  text-shadow:0 0 8px rgba(0,0,0,.85);
 }
 
 .gallery-desc{
-  margin-top:26px;
+  margin-top:28px;
   font-size:1.05rem;
   color:#dfffff;
   text-shadow:0 0 8px rgba(0,229,255,.45);
@@ -141,12 +163,11 @@ header{
 .statement{
   max-width:900px;
   margin:80px auto;
-  padding:28px 32px;
+  padding:30px;
   text-align:center;
-  color:var(--text);
   background:rgba(255,255,255,.03);
   border:1px solid rgba(0,229,255,.25);
-  border-radius:20px;
+  border-radius:22px;
 }
 
 /* ABOUT */
@@ -164,9 +185,18 @@ header{
 }
 
 /* CONTACTO */
-.contact{text-align:center;margin:80px 0;}
-.contact h2{color:var(--blue);margin-bottom:10px;}
-.contact-text{color:var(--muted);margin-bottom:20px;}
+.contact{
+  text-align:center;
+  margin:80px 0;
+}
+.contact h2{
+  color:var(--blue);
+  margin-bottom:12px;
+}
+.contact-text{
+  color:var(--muted);
+  margin-bottom:22px;
+}
 .contact a{
   margin:0 14px;
   color:var(--blue);
@@ -176,12 +206,15 @@ header{
 
 /* FOOTER */
 footer{
-  background:#060a16;
+  background:#050914;
   padding:70px 20px;
   text-align:center;
   margin-top:120px;
 }
-footer p{color:var(--muted);font-size:.9rem;}
+footer p{
+  color:var(--muted);
+  font-size:.9rem;
+}
 
 @media(max-width:600px){
   .hero-title{font-size:3rem;}
@@ -194,11 +227,14 @@ footer p{color:var(--muted);font-size:.9rem;}
 <div class="background"></div>
 
 <header>
-  <div class="logo-container">
-    <div class="logo">LC TECHNOLOGY</div>
-    <div class="logo-sub">Tecnología Innovadora</div>
+  <div class="logo-left">
+    <div class="name">LC TECHNOLOGY</div>
+    <div class="tag">TECNOLOGÍA INNOVADORA</div>
   </div>
-  <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+
+  <div class="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </header>
 
 <nav class="menu" id="menu">
@@ -209,10 +245,7 @@ footer p{color:var(--muted);font-size:.9rem;}
 </nav>
 
 <section class="hero">
-  <div class="hero-logo">
-    <div class="hero-title">LC TECHNOLOGY</div>
-    <div class="hero-sub">Tecnología Innovadora</div>
-  </div>
+  <div class="hero-title">LC TECHNOLOGY</div>
 </section>
 
 <section class="services-gallery">
@@ -232,28 +265,28 @@ footer p{color:var(--muted);font-size:.9rem;}
 </div>
 
 <section class="about">
-  <h2>Sobre Nosotros</h2>
-  <p>
-    LC TECHNOLOGY nació en 2024 con la visión de ofrecer soluciones tecnológicas de calidad y confianza a cada cliente. Nos enfocamos en brindar un servicio cercano y personalizado, donde cada equipo que pasa por nuestras manos recibe atención profesional, diagnósticos precisos y resultados confiables.
-    <br><br>
-    Nuestro compromiso no se limita a reparar o vender dispositivos: buscamos garantizar que cada experiencia con nosotros sea satisfactoria y segura. Como fundador y principal responsable de LC TECHNOLOGY, superviso personalmente cada detalle, asegurando un trato directo, transparente y honesto.
-    <br><br>
-    Con 2 años de experiencia en tecnología y servicios de reparación, combinamos innovación, conocimiento y dedicación para que cada cliente reciba la mejor atención posible. Nuestro objetivo es crear relaciones de confianza duraderas, cuidando cada dispositivo como si fuera propio, y proyectando a futuro la ampliación del equipo para seguir creciendo y mejorando nuestros servicios.
-  </p>
+<h2>Sobre Nosotros</h2>
+<p>
+LC TECHNOLOGY nació en 2024 con la visión de ofrecer soluciones tecnológicas de calidad y confianza a cada cliente. Nos enfocamos en brindar un servicio cercano y personalizado, donde cada equipo que pasa por nuestras manos recibe atención profesional, diagnósticos precisos y resultados confiables.
+<br><br>
+Nuestro compromiso no se limita a reparar o vender dispositivos: buscamos garantizar que cada experiencia con nosotros sea satisfactoria y segura. Como fundador y principal responsable de LC TECHNOLOGY, superviso personalmente cada detalle, asegurando un trato directo, transparente y honesto.
+<br><br>
+Con 2 años de experiencia en tecnología y servicios de reparación, combinamos innovación, conocimiento y dedicación para que cada cliente reciba la mejor atención posible. Nuestro objetivo es crear relaciones de confianza duraderas, cuidando cada dispositivo como si fuera propio, y proyectando a futuro la incorporación de nuevas personas al equipo para seguir creciendo.
+</p>
 </section>
 
 <section class="contact">
-  <h2>Contacto</h2>
-  <p class="contact-text">
-    Estamos siempre disponibles para ayudarte. Podés escribirnos por cualquiera de nuestros canales.
-  </p>
-  <a href="https://wa.me/5492634307686" target="_blank">WhatsApp</a>
-  <a href="https://www.instagram.com/javitolc22/" target="_blank">Instagram</a>
-  <a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank">Facebook</a>
+<h2>Contacto</h2>
+<p class="contact-text">
+Estamos siempre disponibles para ayudarte. Podés escribirnos por cualquiera de nuestros canales.
+</p>
+<a href="https://wa.me/5492634307686" target="_blank">WhatsApp</a>
+<a href="https://www.instagram.com/javitolc22/" target="_blank">Instagram</a>
+<a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank">Facebook</a>
 </section>
 
 <footer>
-  <p>LC TECHNOLOGY © 2026 · Todos los derechos reservados · <a href="#">Privacidad</a></p>
+<p>LC TECHNOLOGY © 2026 · Todos los derechos reservados · <a href="#">Privacidad</a></p>
 </footer>
 
 <script>
