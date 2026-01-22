@@ -15,6 +15,8 @@
   --muted:#a8b2d1;
   --highlight:#00ffea;
 }
+
+/* Reset básico */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', system-ui, sans-serif;}
 body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 
@@ -37,21 +39,35 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   text-shadow: 0 0 10px var(--blue),0 0 20px var(--violet),0 0 30px var(--green);
   animation: logoGlow 3s infinite alternate;
 }
-.logo-sub{font-size:.9rem;color:var(--muted);margin-top:4px;animation: logoGlow 3s infinite alternate;}
-@keyframes logoGlow {
+.logo-sub{
+  font-size:.95rem;
+  color:var(--blue);
+  margin-top:4px;
+  font-weight:bold;
+  text-shadow:0 0 8px var(--blue),0 0 16px var(--violet);
+  animation: subtitleGlow 3s infinite alternate;
+}
+@keyframes logoGlow{
   0%{text-shadow:0 0 12px var(--blue),0 0 24px var(--violet);}
   50%{text-shadow:0 0 20px var(--green),0 0 40px var(--blue);}
   100%{text-shadow:0 0 12px var(--violet),0 0 30px var(--blue);}
 }
+@keyframes subtitleGlow{
+  0%{text-shadow:0 0 10px var(--blue),0 0 20px var(--violet);}
+  50%{text-shadow:0 0 14px var(--green),0 0 28px var(--blue);}
+  100%{text-shadow:0 0 12px var(--violet),0 0 24px var(--blue);}
+}
+
 .burger{width:34px;height:24px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}
 .burger span{height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));border-radius:4px;box-shadow:0 0 14px var(--blue);transition:.35s;}
 .burger:hover span{box-shadow:0 0 18px var(--blue),0 0 35px var(--violet);} 
+
 .menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:#060a16;padding:120px 30px;transition:.45s ease;z-index:9;}
 .menu.active{right:0;}
 .menu a{display:block;margin-bottom:34px;font-size:1.15rem;text-decoration:none;color:var(--text);} 
 .menu a:hover{color:var(--blue);text-shadow:0 0 12px var(--blue);} 
 
-/* Hero */
+/* Hero central */
 .hero{
   min-height:100vh;
   display:flex;
@@ -62,21 +78,35 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   padding-top:120px;
 }
 .hero h1{
-  font-size:4rem;
+  font-size:5rem;
   font-weight:bold;
-  letter-spacing:.3em;
   text-transform:uppercase;
   color:var(--blue);
-  text-shadow: 0 0 15px var(--blue), 0 0 30px var(--violet), 0 0 45px var(--green);
-  animation: heroGlow 3s infinite alternate;
+  text-shadow:0 0 20px var(--blue),0 0 40px var(--violet),0 0 60px var(--green);
+  animation: heroGlow 4s infinite alternate;
+  position:relative;
+}
+/* Luz alrededor del texto central */
+.hero h1::after{
+  content:"";
+  position:absolute;
+  inset:-10px;
+  border-radius:12px;
+  box-shadow:0 0 30px var(--blue),0 0 50px var(--violet),0 0 70px var(--green);
+  animation: neonPulse 3s infinite alternate;
 }
 @keyframes heroGlow{
-  0%{text-shadow:0 0 15px var(--blue),0 0 30px var(--violet);}
-  50%{text-shadow:0 0 25px var(--green),0 0 50px var(--blue);}
-  100%{text-shadow:0 0 15px var(--violet),0 0 40px var(--blue);}
+  0%{text-shadow:0 0 20px var(--blue),0 0 40px var(--violet);}
+  50%{text-shadow:0 0 30px var(--green),0 0 60px var(--blue);}
+  100%{text-shadow:0 0 20px var(--violet),0 0 50px var(--blue);}
+}
+@keyframes neonPulse{
+  0%{box-shadow:0 0 30px var(--blue),0 0 50px var(--violet);}
+  50%{box-shadow:0 0 40px var(--green),0 0 60px var(--blue);}
+  100%{box-shadow:0 0 30px var(--violet),0 0 50px var(--blue);}
 }
 
-/* Galería de servicios */
+/* Galería */
 .services-gallery{
   padding:80px 20px;
   text-align:center;
@@ -114,7 +144,15 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   box-shadow:0 0 60px rgba(0,229,255,.7);
 }
 
-/* Botón WhatsApp oficial */
+/* Texto debajo galería */
+.gallery-desc{
+  margin-top:20px;
+  font-size:1rem;
+  color:var(--highlight);
+  text-shadow:0 0 8px rgba(0,0,0,.5);
+}
+
+/* Botón WhatsApp */
 .whatsapp-btn{
   margin:60px auto 0;
   width:90px;
@@ -199,7 +237,7 @@ footer a{
 }
 
 @media(max-width:600px){
-  .hero h1{font-size:2.4rem;}
+  .hero h1{font-size:2.8rem;}
   .gallery .service{height:150px;}
 }
 </style>
@@ -233,6 +271,9 @@ footer a{
     <div class="service" style="background-image:url('foto2.jpg');"><span>Venta de equipos</span></div>
     <div class="service" style="background-image:url('foto3.jpg');"><span>Accesorios</span></div>
     <div class="service" style="background-image:url('foto4.jpg');"><span>TV Digital</span></div>
+  </div>
+  <div class="gallery-desc">
+    Reparamos, vendemos y proveemos soluciones tecnológicas con confianza y calidad.
   </div>
 </section>
 
