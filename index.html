@@ -19,7 +19,7 @@
 body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 
 .background{
-  position:fixed; inset:0; z-index:-1;
+  position:fixed;inset:0;z-index:-1;
   background:
     radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
     radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
@@ -28,80 +28,84 @@ body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 }
 @keyframes bgMove{from{filter:hue-rotate(0deg);}to{filter:hue-rotate(40deg);}}
 
-header{
-  position:fixed; top:0; left:0; right:0;
-  height:72px; padding:0 26px;
-  display:flex; justify-content:space-between; align-items:center;
-  background:rgba(8,12,26,.7); backdrop-filter:blur(14px);
-  z-index:10;
-}
-.logo{
-  font-size:1.4rem; letter-spacing:.15em;
-  text-shadow:0 0 18px var(--blue),0 0 30px var(--violet);
-}
-.burger{
-  width:34px;height:24px;cursor:pointer;
-  display:flex;flex-direction:column;justify-content:space-between;
-}
-.burger span{
-  height:3px;border-radius:4px;
-  background:linear-gradient(90deg,var(--blue),var(--violet));
-  box-shadow:0 0 14px var(--blue);
-}
-
-.menu{
-  position:fixed; top:0; right:-100%;
-  width:300px; height:100vh;
-  background:#060a16; padding:120px 30px;
-  transition:.45s ease; z-index:9;
-}
-.menu.active{right:0;}
-.menu a{
-  display:block; margin-bottom:34px;
-  font-size:1.15rem; color:var(--text); text-decoration:none;
-}
-.menu a:hover{color:var(--blue); text-shadow:0 0 12px var(--blue);}
-
+/* HERO */
 .hero{
   min-height:100vh;
-  padding:160px 20px 80px;
+  padding:160px 20px 100px;
   text-align:center;
 }
 .hero h1{
-  font-size:3.8rem; letter-spacing:.2em;
+  font-size:3.8rem;
+  letter-spacing:.2em;
   text-shadow:0 0 30px rgba(0,229,255,.9),0 0 60px rgba(124,77,255,.7);
 }
 .hero p{
-  margin-top:22px; font-size:1.2rem; color:var(--muted);
+  margin-top:18px;
+  font-size:1.2rem;
+  color:var(--muted);
 }
 
-.hero-actions{
-  margin-top:60px;
-  display:flex; justify-content:center;
-  gap:26px; flex-wrap:wrap;
+/* CIRCULOS */
+.circles{
+  margin-top:80px;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
 }
-.hero-actions a{
-  padding:16px 30px; border-radius:20px;
-  background:rgba(255,255,255,.06);
-  color:var(--text); text-decoration:none;
-  box-shadow:0 0 30px rgba(0,229,255,.45);
-  transition:.35s;
+.circle{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  background:rgba(255,255,255,.05);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 35px rgba(0,229,255,.4);
 }
-.hero-actions a:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 50px rgba(0,229,255,.9);
+.circle span{
+  font-size:2.4rem;
+  margin-bottom:12px;
+}
+.circle p{
+  color:var(--muted);
+  font-size:.95rem;
 }
 
-.primary-btn{
+/* GALERIA */
+.gallery{
+  max-width:1000px;
+  margin:120px auto 0;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:26px;
+}
+.gallery div{
+  height:180px;
+  border-radius:18px;
+  background:linear-gradient(135deg,rgba(0,229,255,.2),rgba(124,77,255,.25));
+  box-shadow:0 0 30px rgba(124,77,255,.5);
+}
+
+/* WHATSAPP */
+.cta{
+  margin:120px auto 0;
+  text-align:center;
+}
+.cta a{
   display:inline-block;
-  margin-top:70px;
-  padding:16px 48px;
+  padding:18px 50px;
   border-radius:36px;
   background:linear-gradient(120deg,var(--blue),var(--violet));
-  color:#000; font-weight:600; text-decoration:none;
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
   box-shadow:0 0 45px rgba(0,229,255,.7);
 }
 
+/* WHY */
 .why{
   max-width:900px;
   margin:120px auto 0;
@@ -119,13 +123,17 @@ header{
   line-height:1.7;
 }
 
+/* FOOTER */
 footer{
   margin-top:120px;
   padding:50px 20px;
   background:#060a16;
   text-align:center;
 }
-footer p{color:var(--muted); font-size:.95rem;}
+footer p{
+  color:var(--muted);
+  font-size:.95rem;
+}
 </style>
 </head>
 
@@ -133,56 +141,49 @@ footer p{color:var(--muted); font-size:.95rem;}
 
 <div class="background"></div>
 
-<header>
-  <div class="logo">LC MOBILE</div>
-  <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-</header>
-
-<nav class="menu" id="menu">
-  <a href="servicio.html">Servicio Técnico</a>
-  <a href="venta.html">Venta de Celulares</a>
-  <a href="accesorios.html">Accesorios</a>
-  <a href="tv.html">TV Digital</a>
-</nav>
-
 <section class="hero">
   <h1>LC MOBILE</h1>
-  <p>Servicio técnico · Venta · Accesorios · TV Digital</p>
+  <p>Tecnología innovadora</p>
 
-  <div class="hero-actions">
-    <a href="servicio.html">🔧 Reparaciones</a>
-    <a href="venta.html">📱 Celulares</a>
-    <a href="accesorios.html">🎧 Accesorios</a>
-    <a href="tv.html">📺 TV Digital</a>
+  <div class="circles">
+    <div class="circle"><span>🔧</span><p>Reparaciones</p></div>
+    <div class="circle"><span>📱</span><p>Celulares</p></div>
+    <div class="circle"><span>🎧</span><p>Accesorios</p></div>
+    <div class="circle"><span>📺</span><p>TV Digital</p></div>
   </div>
+</section>
 
-  <a class="primary-btn" href="https://wa.me/5492634307686">Consultar por WhatsApp</a>
+<section class="gallery">
+  <div></div>
+  <div></div>
+  <div></div>
+</section>
+
+<section class="cta">
+  <a href="https://wa.me/5492634307686">Consultar por WhatsApp</a>
 </section>
 
 <section class="why">
   <h2>¿Por qué elegir LC Mobile?</h2>
   <p>
     En LC Mobile trabajamos adaptándonos a la necesidad de cada cliente.
-    Cada reparación o servicio se realiza con criterio técnico, explicaciones claras
-    y el compromiso de entregar un trabajo bien hecho.
+    Cada reparación o servicio se realiza con criterio técnico,
+    explicaciones claras y el compromiso de entregar un trabajo bien hecho,
+    para que el cliente quede satisfecho con su dispositivo.
+    La calidad, la responsabilidad y la atención personalizada
+    son la base de nuestro trabajo diario.
   </p>
   <p>⚡ Reparaciones rápidas · 🛡️ Garantía real · 📍 Atención local · 📲 Soporte directo</p>
 </section>
 
 <footer>
   <p>
-    📲 <a href="https://wa.me/5492634307686" style="color:var(--blue);text-decoration:none;">WhatsApp</a> ·
-    📸 <a href="https://www.instagram.com/javitolc22/" style="color:var(--blue);text-decoration:none;">Instagram</a> ·
-    📘 <a href="https://www.facebook.com/share/1AF5QUZZCn/" style="color:var(--blue);text-decoration:none;">Facebook</a>
+    WhatsApp · Instagram · Facebook
   </p>
-  <p style="margin-top:14px;">LC Mobile © 2026 · Tecnología que vuelve a la vida</p>
+  <p style="margin-top:14px;">
+    LC Mobile © 2026 · Tecnología que vuelve a la vida
+  </p>
 </footer>
-
-<script>
-function toggleMenu(){
-  document.getElementById('menu').classList.toggle('active');
-}
-</script>
 
 </body>
 </html>
