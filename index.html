@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Mobile Repair</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LC Mobile</title>
 
 <style>
 :root{
@@ -45,170 +45,148 @@ body{
   100%{filter:hue-rotate(45deg);}
 }
 
-/* ===== CONTENEDOR PRINCIPAL (para escalar todo igual en móvil) ===== */
-.wrapper{
-  width:1200px; /* ancho base como en PC */
-  margin:0 auto;
-  transform-origin: top center;
-  transition: transform 0.3s ease;
+/* ===== MENU HAMBURGUESA ===== */
+.menu-btn{
+  position:fixed;
+  top:22px;
+  right:22px;
+  width:32px;
+  height:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+  z-index:30;
+}
+
+.menu-btn span{
+  height:3px;
+  background:var(--neon-blue);
+  border-radius:3px;
+  box-shadow:0 0 10px var(--neon-blue);
+  transition:.4s;
+}
+
+.menu-btn.active span:nth-child(1){
+  transform:rotate(45deg) translate(6px,6px);
+}
+.menu-btn.active span:nth-child(2){
+  opacity:0;
+}
+.menu-btn.active span:nth-child(3){
+  transform:rotate(-45deg) translate(6px,-6px);
+}
+
+/* ===== MENU LATERAL ===== */
+.side-menu{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:260px;
+  height:100vh;
+  background:linear-gradient(180deg,#0b1228,#060a16);
+  padding:90px 25px;
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+  transition:.45s ease;
+  z-index:25;
+  box-shadow:-20px 0 40px rgba(0,0,0,.7);
+}
+
+.side-menu a{
+  color:var(--text-main);
+  text-decoration:none;
+  font-size:1.1rem;
+  transition:.3s;
+}
+
+.side-menu a:hover{
+  color:var(--neon-green);
+  text-shadow:0 0 12px var(--neon-green);
+}
+
+.side-menu.active{
+  right:0;
 }
 
 /* ===== HERO ===== */
 .hero{
-  min-height:auto;
+  min-height:80vh;
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:flex-start;
+  justify-content:center;
   text-align:center;
-  padding:60px 20px 20px;
+  padding:60px 20px;
 }
 
 .hero h1{
-  font-size:3.4rem;
-  letter-spacing:1.2px;
-  text-shadow:
-    0 0 14px rgba(0,229,255,.7),
-    0 0 45px rgba(124,77,255,.5);
+  font-size:3.2rem;
+  text-shadow:0 0 20px rgba(0,229,255,.8);
+  animation:fadeDown .9s ease;
 }
 
 .hero p{
-  margin-top:16px;
+  margin-top:18px;
   font-size:1.3rem;
   color:var(--text-muted);
+  animation:fadeUp 1.1s ease;
 }
 
-/* ===== HERO INFO ===== */
-.hero-info{
-  padding:20px 20px 50px;
-  text-align:center;
+@keyframes fadeDown{
+  from{opacity:0; transform:translateY(-20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-.hero-info-container{
-  max-width:900px;
-  margin:auto;
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  flex-wrap:wrap;
+/* ===== SEPARADOR ===== */
+.section-glow{
+  width:100%;
+  height:1px;
+  margin:70px 0;
+  background:linear-gradient(90deg,transparent,var(--neon-blue),transparent);
+  box-shadow:0 0 12px var(--neon-blue);
 }
 
-.info-item{
-  font-size:.95rem;
-  color:var(--text-muted);
-  padding:10px 18px;
-  border-radius:20px;
-  background:rgba(255,255,255,.03);
-  box-shadow:0 0 18px rgba(0,229,255,.08);
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-
-.info-item:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 22px rgba(0,229,255,.25);
-}
-
-/* ===== SERVICIOS ===== */
+/* ===== SECCIONES ===== */
 .services{
-  padding:80px 20px 100px;
+  padding:40px 20px 90px;
 }
 
 .services h2{
   text-align:center;
   font-size:2.2rem;
-  margin-bottom:55px;
+  margin-bottom:45px;
   text-shadow:0 0 12px rgba(0,229,255,.5);
 }
 
 .services-container{
-  max-width:1150px;
+  max-width:1100px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:28px;
 }
 
 .service-card{
   background:linear-gradient(180deg,#121b3a,#0b1228);
   border-radius:20px;
-  padding:24px 26px;
+  padding:24px;
   box-shadow:0 22px 55px rgba(0,0,0,.65);
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  transition:transform .35s ease;
-}
-
-.service-card::before{
-  content:'';
-  position:absolute;
-  inset:-1px;
-  border-radius:20px;
-  background:linear-gradient(120deg,var(--neon-blue),var(--neon-violet),var(--neon-green));
-  opacity:0;
-  transition:opacity .4s ease;
-}
-
-.service-card>*{
-  position:relative;
-  z-index:1;
+  transition:.35s;
 }
 
 .service-card:hover{
-  transform:translateY(-7px);
+  transform:translateY(-6px);
+  box-shadow:0 0 30px rgba(0,229,255,.25);
 }
 
-.service-card.active::before{
-  opacity:.30;
-}
-
-.service-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.service-header h3{
-  font-size:1.05rem;
-  font-weight:500;
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.toggle{
-  font-size:1.4rem;
-  color:var(--neon-blue);
-  transition:transform .3s ease,color .3s ease;
-}
-
-.service-card.active .toggle{
-  transform:rotate(45deg);
-  color:var(--neon-green);
-}
-
-/* Transición suave para contenido */
-.service-content{
-  max-height:0;
-  overflow:hidden;
-  transition: all 0.5s ease;
-  margin-top:14px;
-  font-size:.95rem;
-  line-height:1.6;
-  color:var(--text-muted);
-}
-
-/* ===== CONFIANZA ===== */
-.trust{
-  padding:70px 20px;
-  text-align:center;
-}
-
-.trust p{
-  max-width:720px;
-  margin:auto;
-  font-size:1.05rem;
-  color:var(--text-muted);
+.service-card h3{
+  margin-bottom:10px;
 }
 
 /* ===== FOOTER ===== */
@@ -217,6 +195,7 @@ footer{
   padding:35px 20px;
   text-align:center;
   font-size:.9rem;
+  border-top:1px solid rgba(255,255,255,.05);
 }
 
 footer a{
@@ -225,11 +204,7 @@ footer a{
   margin:0 12px;
 }
 
-footer a:hover{
-  text-shadow:0 0 8px var(--neon-blue);
-}
-
-/* ===== WHATSAPP FLOAT ===== */
+/* ===== WHATSAPP ===== */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -245,143 +220,96 @@ footer a:hover{
   font-size:1.6rem;
   text-decoration:none;
   box-shadow:0 0 25px rgba(37,211,102,.7);
-  z-index:5;
-  transition:transform .3s ease;
+  animation:pulse 2s infinite;
+  z-index:40;
 }
 
-.whatsapp:hover{
-  transform:scale(1.1);
+@keyframes pulse{
+  0%{box-shadow:0 0 0 rgba(37,211,102,.7);}
+  70%{box-shadow:0 0 35px rgba(37,211,102,.9);}
+  100%{box-shadow:0 0 0 rgba(37,211,102,.7);}
 }
 </style>
 </head>
 
 <body>
+
 <div class="background"></div>
 
-<div class="wrapper">
-  <section class="hero">
-    <div>
-      <h1>Mobile Repair</h1>
-      <p>Especialistas en reparación de celulares — diseño profesional, rápido y seguro.</p>
-    </div>
-  </section>
-
-  <section class="hero-info">
-    <div class="hero-info-container">
-      <div class="info-item">⚡ Reparaciones rápidas</div>
-      <div class="info-item">🛠 Repuestos de calidad</div>
-      <div class="info-item">🔒 Trabajo garantizado</div>
-      <div class="info-item">📍 Atención personalizada</div>
-    </div>
-  </section>
-
-  <section class="services">
-    <h2>Servicios</h2>
-    <div class="services-container">
-      <div class="service-card">
-        <div class="service-header">
-          <h3>📱 Cambio de Pantalla</h3><span class="toggle">+</span>
-        </div>
-        <div class="service-content">
-          <p>¿Pantalla rota o con toques fantasmas? La reemplazamos por una nueva de calidad original.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-header">
-          <h3>🔋 Reemplazo de Batería</h3><span class="toggle">+</span>
-        </div>
-        <div class="service-content">
-          <p>Si tu batería dura poco o se calienta, colocamos una nueva y calibramos el sistema.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-header">
-          <h3>⚡ Pin de Carga</h3><span class="toggle">+</span>
-        </div>
-        <div class="service-content">
-          <p>Reemplazamos el pin de carga dañado para que tu celular cargue correctamente.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-header">
-          <h3>💻 Software / Formateo</h3><span class="toggle">+</span>
-        </div>
-        <div class="service-content">
-          <p>Reinstalamos y optimizamos el sistema, eliminando errores y lentitud.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-header">
-          <h3>🔐 Cuenta Google</h3><span class="toggle">+</span>
-        </div>
-        <div class="service-content">
-          <p>Asistencia para desbloquear cuenta Google según el modelo del dispositivo.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-header">
-          <h3>🛠 Diagnóstico Rápido</h3><span class="toggle">+</span>
-        </div>
-        <div class="service-content">
-          <p>Analizamos tu dispositivo en minutos para detectar cualquier falla.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-header">
-          <h3>📲 Todas las Marcas</h3><span class="toggle">+</span>
-        </div>
-        <div class="service-content">
-          <p>Trabajamos con todas las marcas: Samsung, iPhone, Xiaomi, Motorola y más.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="trust">
-    <p>Atención personalizada, experiencia real y trabajo garantizado. Tu celular en manos expertas.</p>
-  </section>
-
-  <footer>
-    <a href="https://wa.me/5492634307686" target="_blank">WhatsApp</a> ·
-    <a href="https://www.instagram.com/javitolc22/" target="_blank">Instagram</a> ·
-    <a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank">Facebook</a>
-  </footer>
+<div class="menu-btn" id="menuBtn">
+  <span></span><span></span><span></span>
 </div>
 
-<a class="whatsapp" href="https://wa.me/5492634307686" target="_blank">💬</a>
+<nav class="side-menu" id="sideMenu">
+  <a href="#servicio">🔧 Servicio Técnico</a>
+  <a href="#venta">📱 Venta de Celulares</a>
+  <a href="#accesorios">🎧 Accesorios</a>
+  <a href="#tv">📺 TV Digital</a>
+</nav>
+
+<section class="hero">
+  <h1>LC Mobile</h1>
+  <p>Servicio técnico · Venta de celulares · Accesorios · TV Digital</p>
+</section>
+
+<div class="section-glow"></div>
+
+<section id="servicio" class="services">
+  <h2>Servicio Técnico</h2>
+  <div class="services-container">
+    <div class="service-card"><h3>📱 Pantallas</h3><p>Cambio de módulos y displays.</p></div>
+    <div class="service-card"><h3>🔋 Baterías</h3><p>Reemplazo y optimización.</p></div>
+    <div class="service-card"><h3>⚡ Pin de carga</h3><p>Soluciones de carga.</p></div>
+  </div>
+</section>
+
+<div class="section-glow"></div>
+
+<section id="venta" class="services">
+  <h2>Venta de Celulares</h2>
+  <div class="services-container">
+    <div class="service-card"><h3>📱 Nuevos</h3><p>Equipos liberados.</p></div>
+    <div class="service-card"><h3>♻ Usados</h3><p>Probados y garantizados.</p></div>
+  </div>
+</section>
+
+<div class="section-glow"></div>
+
+<section id="accesorios" class="services">
+  <h2>Accesorios</h2>
+  <div class="services-container">
+    <div class="service-card"><h3>🎧 Auriculares</h3></div>
+    <div class="service-card"><h3>🔌 Cargadores</h3></div>
+    <div class="service-card"><h3>🛡 Fundas</h3></div>
+  </div>
+</section>
+
+<div class="section-glow"></div>
+
+<section id="tv" class="services">
+  <h2>TV Digital</h2>
+  <div class="services-container">
+    <div class="service-card"><h3>📺 Instalación</h3></div>
+    <div class="service-card"><h3>⚙ Configuración</h3></div>
+  </div>
+</section>
+
+<footer>
+  <a href="#">WhatsApp</a> · <a href="#">Instagram</a> · <a href="#">Facebook</a>
+  <p style="margin-top:10px;opacity:.6">© LC Mobile · Soluciones en tecnología</p>
+</footer>
+
+<a class="whatsapp" href="#">💬</a>
 
 <script>
-/* Escala automática para mantener la vista idéntica */
-function adjustScale(){
-  const baseWidth = 1200;
-  const scale = Math.min(window.innerWidth / baseWidth, 1);
-  document.querySelector('.wrapper').style.transform = `scale(${scale})`;
-}
-adjustScale();
-window.addEventListener('resize', adjustScale);
+const menuBtn = document.getElementById('menuBtn');
+const sideMenu = document.getElementById('sideMenu');
 
-/* Animación de tarjetas */
-const cards = document.querySelectorAll('.service-card');
-cards.forEach(card => {
-  const content = card.querySelector('.service-content');
-  card.addEventListener('click', () => {
-    const isActive = card.classList.contains('active');
-    cards.forEach(c=>{
-      c.classList.remove('active');
-      c.querySelector('.service-content').style.maxHeight=null;
-    });
-    if(!isActive){
-      card.classList.add('active');
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  });
+menuBtn.addEventListener('click', ()=>{
+  menuBtn.classList.toggle('active');
+  sideMenu.classList.toggle('active');
 });
 </script>
+
 </body>
 </html>
