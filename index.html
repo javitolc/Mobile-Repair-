@@ -75,48 +75,79 @@ footer p{color:var(--muted);font-size:.95rem;}
 </header>
 
 <nav class="menu" id="menu">
-  <a href="servicio.html">Servicio Técnico</a>
-  <a href="venta.html">Venta de Celulares</a>
-  <a href="accesorios.html">Accesorios</a>
-  <a href="tv.html">TV Digital</a>
+  <a href="#servicio" onclick="toggleMenu()">Servicio Técnico</a>
+  <a href="#venta" onclick="toggleMenu()">Venta de Celulares</a>
+  <a href="#accesorios" onclick="toggleMenu()">Accesorios</a>
+  <a href="#tv" onclick="toggleMenu()">TV Digital</a>
 </nav>
 
-<section class="hero">
+<section class="hero" id="inicio">
   <h1>LC MOBILE</h1>
   <p>Servicio técnico · Venta · Accesorios · TV Digital</p>
 
   <div class="hero-actions">
-    <a href="servicio.html">🔧 Reparaciones</a>
-    <a href="venta.html">📱 Celulares</a>
-    <a href="accesorios.html">🎧 Accesorios</a>
-    <a href="tv.html">📺 TV Digital</a>
+    <a href="#servicio">🔧 Reparaciones</a>
+    <a href="#venta">📱 Celulares</a>
+    <a href="#accesorios">🎧 Accesorios</a>
+    <a href="#tv">📺 TV Digital</a>
   </div>
 
   <a class="primary-btn" href="https://wa.me/5492634307686">Consultar por WhatsApp</a>
 </section>
 
-<section>
-  <h2>Servicios Destacados</h2>
+<section id="servicio">
+  <h2>Servicio Técnico</h2>
+  <p style="max-width:800px;margin:20px auto;color:var(--muted);">Reparaciones profesionales para todo tipo de celulares. Diagnóstico claro, soluciones reales y trabajo garantizado.</p>
   <div class="cards">
     <div class="card"><h3>Reparación Express</h3><p>Módulos, baterías, conectores y más.</p></div>
-    <div class="card"><h3>Venta Garantizada</h3><p>Equipos nuevos y usados seleccionados.</p></div>
-    <div class="card"><h3>Accesorios Premium</h3><p>Fundas, cargadores, auriculares.</p></div>
-    <div class="card"><h3>TV Digital</h3><p>Instalación y configuración completa.</p></div>
+    <div class="card"><h3>Software</h3><p>Formateo, optimización y solución de errores.</p></div>
+    <div class="card"><h3>Diagnóstico</h3><p>Detección rápida y precisa de fallas.</p></div>
+  </div>
+</section>
+
+<section id="venta">
+  <h2>Venta de Dispositivos</h2>
+  <p style="max-width:800px;margin:20px auto;color:var(--muted);">Celulares nuevos y usados seleccionados, probados y garantizados.</p>
+  <div class="cards">
+    <div class="card"><h3>Equipos Nuevos</h3><p>Últimos modelos disponibles.</p></div>
+    <div class="card"><h3>Usados Garantizados</h3><p>Probados y en excelente estado.</p></div>
+  </div>
+</section>
+
+<section id="accesorios">
+  <h2>Accesorios</h2>
+  <p style="max-width:800px;margin:20px auto;color:var(--muted);">Todo lo que necesitás para proteger y mejorar tu dispositivo.</p>
+  <div class="cards">
+    <div class="card"><h3>Fundas y Vidrios</h3><p>Protección premium.</p></div>
+    <div class="card"><h3>Cargadores</h3><p>Rápidos y seguros.</p></div>
+    <div class="card"><h3>Auriculares</h3><p>Calidad y comodidad.</p></div>
+  </div>
+</section>
+
+<section id="tv">
+  <h2>TV Digital</h2>
+  <p style="max-width:800px;margin:20px auto;color:var(--muted);">Instalación y configuración de TV digital con soporte incluido.</p>
+  <div class="cards">
+    <div class="card"><h3>Instalación</h3><p>Configuración completa.</p></div>
+    <div class="card"><h3>Soporte</h3><p>Asistencia y mantenimiento.</p></div>
   </div>
 </section>
 
 <section class="trust">
   <h2>¿Por qué elegir LC Mobile?</h2>
-  <div class="trust-list">
-    <div class="trust-item">⚡ Reparaciones rápidas</div>
-    <div class="trust-item">🛡️ Garantía real</div>
-    <div class="trust-item">📍 Atención local</div>
-    <div class="trust-item">📲 Soporte directo</div>
-  </div>
+  <p style="max-width:900px;margin:30px auto 0;color:var(--muted);font-size:1.05rem;line-height:1.7;">
+    En LC Mobile trabajamos adaptándonos a la necesidad de cada cliente. Nuestro objetivo es que cada equipo se entregue funcionando correctamente, con explicaciones claras y la tranquilidad de un trabajo bien hecho. La conformidad del cliente y la calidad del servicio son nuestra prioridad en cada reparación, venta o instalación.
+  </p>
+  <p style="margin-top:28px;color:var(--muted);">⚡ Reparaciones rápidas · 🛡️ Garantía real · 📍 Atención local · 📲 Soporte directo</p>
 </section>
 
 <footer>
-  <p>LC Mobile © 2026 · Tecnología que vuelve a la vida</p>
+  <p>
+    📲 <a href="https://wa.me/5492634307686" style="color:var(--blue);text-decoration:none;">WhatsApp</a> ·
+    📸 <a href="https://www.instagram.com/javitolc22/" style="color:var(--blue);text-decoration:none;">Instagram</a> ·
+    📘 <a href="https://www.facebook.com/share/1AF5QUZZCn/" style="color:var(--blue);text-decoration:none;">Facebook</a>
+  </p>
+  <p style="margin-top:14px;color:var(--muted);font-size:.9rem;">LC Mobile © 2026 · Tecnología que vuelve a la vida</p>
 </footer>
 
 <script>
