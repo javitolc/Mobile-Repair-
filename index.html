@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LC TECHNOLOGY</title>
 
-<!-- Fuente futurista -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 
 <style>
@@ -17,89 +16,140 @@
   --pink:#ff00d0;
   --text:#eaf6ff;
   --muted:#a8b2d1;
-  --highlight:#00ffea;
 }
 
-/* Reset básico */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', system-ui, sans-serif;}
-body{background:var(--bg);color:var(--text);overflow-x:hidden;}
+/* Reset + nitidez */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  font-family:'Segoe UI', system-ui, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-/* Fondo original animado suave */
+/* Fondo limpio SIN blur */
 .background{
   position:fixed;
   inset:0;
   z-index:-1;
   background:
-    radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
-    radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
-  animation:bgMove 20s ease-in-out infinite alternate;
-}
-@keyframes bgMove{
-  from{filter:hue-rotate(0deg);}
-  to{filter:hue-rotate(50deg);}
+    radial-gradient(circle at 15% 20%, rgba(0,229,255,.22), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(124,77,255,.22), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(24,255,178,.18), transparent 50%);
 }
 
 /* Header */
 header{
-  position:fixed;top:0;left:0;right:0;height:72px;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:0 26px;background:rgba(11,15,34,.7);backdrop-filter:blur(14px);z-index:10;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 26px;
+  background:rgba(11,15,34,.7);
+  backdrop-filter:blur(14px);
+  z-index:10;
 }
 .logo-container{display:flex;flex-direction:column;}
-.logo {
-  font-size:1.6rem;font-weight:bold;letter-spacing:.2em;
-  color: var(--blue);
-  text-shadow: 0 0 10px var(--blue),0 0 20px var(--violet),0 0 30px var(--green);
-  animation: logoGlow 3s infinite alternate;
+.logo{
+  font-size:1.6rem;
+  letter-spacing:.2em;
+  color:var(--blue);
+  text-shadow:0 0 8px var(--blue),0 0 14px var(--violet);
 }
 .logo-sub{
-  font-size:.95rem;color:var(--blue);margin-top:4px;font-weight:bold;
-  text-shadow:0 0 8px var(--blue),0 0 16px var(--violet);
-  animation: subtitleGlow 3s infinite alternate;
-}
-@keyframes logoGlow{
-  0%{text-shadow:0 0 12px var(--blue),0 0 24px var(--violet);}
-  50%{text-shadow:0 0 20px var(--green),0 0 40px var(--blue);}
-  100%{text-shadow:0 0 12px var(--violet),0 0 30px var(--blue);}
-}
-@keyframes subtitleGlow{
-  0%{text-shadow:0 0 10px var(--blue),0 0 20px var(--violet);}
-  50%{text-shadow:0 0 14px var(--green),0 0 28px var(--blue);}
-  100%{text-shadow:0 0 12px var(--violet),0 0 24px var(--blue);}
+  font-size:.9rem;
+  color:var(--blue);
+  margin-top:4px;
+  text-shadow:0 0 6px var(--blue);
 }
 
-/* Burger menu */
-.burger{width:34px;height:24px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}
-.burger span{height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));border-radius:4px;box-shadow:0 0 14px var(--blue);transition:.35s;}
-.burger:hover span{box-shadow:0 0 18px var(--blue),0 0 35px var(--violet);} 
+/* Burger */
+.burger{
+  width:34px;
+  height:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+}
+.burger span{
+  height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--violet));
+  border-radius:4px;
+  box-shadow:0 0 8px var(--blue);
+}
 
-.menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:#060a16;padding:120px 30px;transition:.45s ease;z-index:9;}
+/* Menu */
+.menu{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:300px;
+  height:100vh;
+  background:#060a16;
+  padding:120px 30px;
+  transition:.45s ease;
+  z-index:9;
+}
 .menu.active{right:0;}
-.menu a{display:block;margin-bottom:34px;font-size:1.15rem;text-decoration:none;color:var(--text);} 
-.menu a:hover{color:var(--blue);text-shadow:0 0 12px var(--blue);} 
+.menu a{
+  display:block;
+  margin-bottom:34px;
+  font-size:1.15rem;
+  text-decoration:none;
+  color:var(--text);
+}
+.menu a:hover{
+  color:var(--blue);
+  text-shadow:0 0 8px var(--blue);
+}
 
-/* Hero central */
+/* Hero */
 .hero{
   min-height:100vh;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  position:relative;padding-top:120px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding-top:120px;
 }
 .hero h1{
-  font-family: 'Orbitron', sans-serif;
+  font-family:'Orbitron',sans-serif;
   font-size:5rem;
-  font-weight:700;
-  text-transform:uppercase;
-  background: linear-gradient(270deg, #00e5ff, #7c4dff, #18ffb2, #ff00d0, #00e5ff);
-  background-size: 1000% 1000%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientText 8s ease infinite;
-  text-shadow:0 0 4px #00e5ff,0 0 6px #7c4dff; /* glow leve para legibilidad */
+  letter-spacing:.15em;
+  background:linear-gradient(270deg,#00e5ff,#7c4dff,#18ffb2,#00e5ff);
+  background-size:600% 600%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradientText 10s ease infinite;
   position:relative;
+
+  /* 🔥 Glow PRO y nítido */
+  text-shadow:
+    0 0 6px rgba(0,229,255,.6),
+    0 0 12px rgba(124,77,255,.4);
 }
-.hero h1::after{ content:""; display:none; } /* removido halo excesivo */
+.hero h1::after{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  border-radius:12px;
+  box-shadow:
+    0 0 25px rgba(0,229,255,.35),
+    0 0 40px rgba(124,77,255,.25),
+    0 0 55px rgba(24,255,178,.25);
+  pointer-events:none;
+}
+
 @keyframes gradientText{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
@@ -109,111 +159,99 @@ header{
 /* Galería */
 .services-gallery{
   padding:80px 20px;
-  text-align:center;
 }
 .gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
-  gap:28px;
   max-width:1200px;
   margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:28px;
 }
-.gallery .service{
-  position:relative;height:180px;border-radius:22px;
-  background-size:cover;background-position:center;background-repeat:no-repeat;
-  box-shadow:0 0 25px rgba(124,77,255,.3);
-  display:flex;align-items:center;justify-content:center;overflow:hidden;
-  transition: transform .35s, box-shadow .35s;
+.service{
+  height:180px;
+  border-radius:22px;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 20px rgba(124,77,255,.35);
+  transition:.35s;
 }
-.gallery .service span{
-  color:#eaf6ff;font-size:1.05rem;font-weight:600;
-  text-shadow:0 0 8px rgba(0,0,0,.7),0 0 12px rgba(124,77,255,.6);
-  z-index:2;
-}
-.gallery .service:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 60px rgba(0,229,255,.7);
-}
-
-/* Texto debajo galería */
-.gallery-desc{
-  margin-top:20px;
-  font-size:1.05rem;
+.service span{
   font-weight:600;
-  text-align:center;
-  background: linear-gradient(270deg,#00e5ff,#7c4dff,#18ffb2,#ff00d0,#00e5ff);
-  background-size: 800% 800%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientDesc 6s ease infinite;
-  text-shadow:0 0 8px #00e5ff,0 0 16px #7c4dff;
+  text-shadow:0 0 6px rgba(0,0,0,.7);
 }
-@keyframes gradientDesc{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+.service:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 45px rgba(0,229,255,.6);
 }
 
-/* Botón WhatsApp */
+/* Texto galería */
+.gallery-desc{
+  margin-top:22px;
+  text-align:center;
+  font-weight:600;
+  background:linear-gradient(270deg,#00e5ff,#7c4dff,#18ffb2,#00e5ff);
+  background-size:600% 600%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradientText 8s ease infinite;
+}
+
+/* WhatsApp */
 .whatsapp-btn{
+  width:90px;
+  height:90px;
   margin:60px auto 0;
-  width:90px;height:90px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  background:#25D366;color:#fff;font-size:2.2rem;
-  box-shadow:0 0 25px rgba(0,229,255,.7), 0 0 50px rgba(124,77,255,.5);
-  text-decoration:none;transition: transform .35s, box-shadow .35s;
-  position:relative;
-}
-.whatsapp-btn::before{
-  content:"";
-  position:absolute;inset:-8px;border-radius:50%;
-  box-shadow:0 0 25px rgba(0,229,255,.7), 0 0 50px rgba(124,77,255,.5);
-  animation: pulse 2s infinite;
-}
-@keyframes pulse{
-  0%{transform:scale(1); opacity:.7;}
-  50%{transform:scale(1.2); opacity:.4;}
-  100%{transform:scale(1); opacity:.7;}
+  border-radius:50%;
+  background:#25D366;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 20px rgba(37,211,102,.7);
+  transition:.3s;
 }
 .whatsapp-btn:hover{transform:scale(1.1);}
+.whatsapp-btn img{width:42px;}
 
-/* Sobre nosotros */
+/* About */
 .about{
-  max-width:900px;margin:100px auto 0;line-height:1.8;color:var(--muted);
-  font-size:1.05rem;text-align:center;
+  max-width:900px;
+  margin:100px auto;
+  text-align:center;
+  color:var(--muted);
+  line-height:1.8;
 }
 .about h2{
-  font-size:2rem;color:var(--blue);margin-bottom:20px;
-  text-shadow:0 0 10px var(--blue),0 0 20px var(--violet);
+  color:var(--blue);
+  margin-bottom:18px;
+  text-shadow:0 0 8px var(--blue);
 }
 
 /* Contacto */
-.contact{
-  margin:80px 0;text-align:center;
-}
+.contact{text-align:center;margin-bottom:80px;}
 .contact a{
-  display:inline-block;margin:0 15px;font-size:1.1rem;
-  color:var(--blue);text-decoration:none;
-  transition: color .3s, text-shadow .3s;
+  margin:0 12px;
+  color:var(--blue);
+  text-decoration:none;
 }
-.contact a:hover{
-  color:var(--highlight);
-  text-shadow:0 0 8px var(--highlight);
-}
+.contact a:hover{text-shadow:0 0 8px var(--blue);}
 
 /* Footer */
 footer{
-  padding:60px 20px;text-align:center;background:#060a16;margin-top:120px;
+  background:#060a16;
+  padding:40px;
+  text-align:center;
+  color:var(--muted);
 }
-footer p{color:var(--muted);font-size:.95rem;margin-top:14px;}
-footer a{color:var(--blue);text-decoration:none;margin:0 10px;}
 
 @media(max-width:600px){
   .hero h1{font-size:3rem;}
-  .gallery .service{height:150px;}
 }
 </style>
 </head>
+
 <body>
 
 <div class="background"></div>
@@ -223,14 +261,16 @@ footer a{color:var(--blue);text-decoration:none;margin:0 10px;}
     <div class="logo">LC TECHNOLOGY</div>
     <div class="logo-sub">Tecnología Innovadora</div>
   </div>
-  <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  <div class="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </header>
 
 <nav class="menu" id="menu">
-  <a href="servicio.html">Servicio Técnico</a>
-  <a href="venta.html">Venta de Celulares</a>
-  <a href="accesorios.html">Accesorios</a>
-  <a href="tv-digital.html">TV Digital</a>
+  <a href="#">Servicio Técnico</a>
+  <a href="#">Venta de Celulares</a>
+  <a href="#">Accesorios</a>
+  <a href="#">TV Digital</a>
 </nav>
 
 <section class="hero">
@@ -239,47 +279,43 @@ footer a{color:var(--blue);text-decoration:none;margin:0 10px;}
 
 <section class="services-gallery">
   <div class="gallery">
-    <div class="service" style="background-image:url('foto1.jpg');"><span>Reparación</span></div>
-    <div class="service" style="background-image:url('foto2.jpg');"><span>Venta de equipos</span></div>
-    <div class="service" style="background-image:url('foto3.jpg');"><span>Accesorios</span></div>
-    <div class="service" style="background-image:url('foto4.jpg');"><span>TV Digital</span></div>
+    <div class="service" style="background-image:url('foto1.jpg')"><span>Reparación</span></div>
+    <div class="service" style="background-image:url('foto2.jpg')"><span>Venta de equipos</span></div>
+    <div class="service" style="background-image:url('foto3.jpg')"><span>Accesorios</span></div>
+    <div class="service" style="background-image:url('foto4.jpg')"><span>TV Digital</span></div>
   </div>
   <div class="gallery-desc">
     Reparamos, vendemos y proveemos soluciones tecnológicas con confianza y calidad.
   </div>
 </section>
 
-<a href="https://wa.me/5492634307686" target="_blank" class="whatsapp-btn">
-  <img src="whatsapp-logo.png" alt="WhatsApp" style="width:40px;height:40px;">
+<a class="whatsapp-btn" href="https://wa.me/5492634307686" target="_blank">
+  <img src="whatsapp-logo.png" alt="WhatsApp">
 </a>
 
 <section class="about">
   <h2>Sobre Nosotros</h2>
   <p>
-    LC TECHNOLOGY nació en 2024 con la visión de ofrecer soluciones tecnológicas de calidad y confianza a cada cliente. Nos enfocamos en brindar un servicio cercano y personalizado, donde cada equipo que pasa por nuestras manos recibe atención profesional, diagnósticos precisos y resultados confiables.
-    <br><br>
-    Nuestro compromiso no se limita a reparar o vender dispositivos: buscamos garantizar que cada experiencia con nosotros sea satisfactoria y segura. Como fundador y principal responsable de LC TECHNOLOGY, superviso personalmente cada detalle, asegurando un trato directo, transparente y honesto.
-    <br><br>
-    Con 2 años de experiencia en tecnología y servicios de reparación, combinamos innovación, conocimiento y dedicación para que cada cliente reciba la mejor atención posible. Nuestro objetivo es crear relaciones de confianza duraderas, cuidando cada dispositivo como si fuera propio.
+    LC TECHNOLOGY fue fundada en 2024 con el objetivo de brindar soluciones tecnológicas confiables,
+    atención personalizada y un trato directo con cada cliente.
   </p>
 </section>
 
 <section class="contact">
-  <a href="https://wa.me/5492634307686" target="_blank">WhatsApp</a>
-  <a href="https://www.instagram.com/javitolc22/" target="_blank">Instagram</a>
-  <a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank">Facebook</a>
+  <a href="#">WhatsApp</a>
+  <a href="#">Instagram</a>
+  <a href="#">Facebook</a>
   <a href="mailto:info@lctechnology.com">Correo</a>
-  <div style="margin-top:15px; color:var(--muted); font-size:.95rem;">
-    Estamos siempre disponibles para ayudarte, contáctanos por cualquier medio.
-  </div>
 </section>
 
 <footer>
-  <p>LC TECHNOLOGY © 2026 · Todos los derechos reservados · <a href="#">Privacidad</a></p>
+  LC TECHNOLOGY © 2026 · Todos los derechos reservados
 </footer>
 
 <script>
-function toggleMenu(){document.getElementById('menu').classList.toggle('active');}
+function toggleMenu(){
+  document.getElementById('menu').classList.toggle('active');
+}
 </script>
 
 </body>
