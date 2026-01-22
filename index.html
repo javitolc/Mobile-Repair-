@@ -24,30 +24,37 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', system-ui, sans-serif;}
 body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 
-/* Fondo animado */
-.background{position:fixed;inset:0;z-index:-1;background:
-radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
-radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
-radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
-animation:bgMove 20s ease-in-out infinite alternate;}
-@keyframes bgMove{from{filter:hue-rotate(0deg);}to{filter:hue-rotate(50deg);}}
+/* Fondo original animado suave */
+.background{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
+  animation:bgMove 20s ease-in-out infinite alternate;
+}
+@keyframes bgMove{
+  from{filter:hue-rotate(0deg);}
+  to{filter:hue-rotate(50deg);}
+}
 
 /* Header */
-header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(11,15,34,.7);backdrop-filter:blur(14px);z-index:10;}
+header{
+  position:fixed;top:0;left:0;right:0;height:72px;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 26px;background:rgba(11,15,34,.7);backdrop-filter:blur(14px);z-index:10;
+}
 .logo-container{display:flex;flex-direction:column;}
 .logo {
-  font-size:1.6rem;
-  font-weight:bold;
-  letter-spacing:.2em;
+  font-size:1.6rem;font-weight:bold;letter-spacing:.2em;
   color: var(--blue);
   text-shadow: 0 0 10px var(--blue),0 0 20px var(--violet),0 0 30px var(--green);
   animation: logoGlow 3s infinite alternate;
 }
 .logo-sub{
-  font-size:.95rem;
-  color:var(--blue);
-  margin-top:4px;
-  font-weight:bold;
+  font-size:.95rem;color:var(--blue);margin-top:4px;font-weight:bold;
   text-shadow:0 0 8px var(--blue),0 0 16px var(--violet);
   animation: subtitleGlow 3s infinite alternate;
 }
@@ -62,6 +69,7 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   100%{text-shadow:0 0 12px var(--violet),0 0 24px var(--blue);}
 }
 
+/* Burger menu */
 .burger{width:34px;height:24px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}
 .burger span{height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));border-radius:4px;box-shadow:0 0 14px var(--blue);transition:.35s;}
 .burger:hover span{box-shadow:0 0 18px var(--blue),0 0 35px var(--violet);} 
@@ -74,12 +82,9 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
 /* Hero central */
 .hero{
   min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  padding-top:120px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;padding-top:120px;
 }
 .hero h1{
   font-family: 'Orbitron', sans-serif;
@@ -91,26 +96,14 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientText 8s ease infinite;
+  text-shadow:0 0 4px #00e5ff,0 0 6px #7c4dff; /* glow leve para legibilidad */
   position:relative;
-  text-shadow:0 0 15px #00e5ff,0 0 30px #7c4dff,0 0 45px #18ffb2;
 }
-.hero h1::after{
-  content:"";
-  position:absolute;
-  inset:-12px;
-  border-radius:12px;
-  box-shadow:0 0 35px #00e5ff,0 0 60px #7c4dff,0 0 80px #18ffb2,0 0 100px #ff00d0;
-  animation: haloPulse 4s ease-in-out infinite alternate;
-}
+.hero h1::after{ content:""; display:none; } /* removido halo excesivo */
 @keyframes gradientText{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
-}
-@keyframes haloPulse{
-  0%{box-shadow:0 0 35px #00e5ff,0 0 60px #7c4dff,0 0 80px #18ffb2,0 0 100px #ff00d0;}
-  50%{box-shadow:0 0 50px #18ffb2,0 0 80px #ff00d0,0 0 100px #7c4dff,0 0 120px #00e5ff;}
-  100%{box-shadow:0 0 35px #00e5ff,0 0 60px #7c4dff,0 0 80px #18ffb2,0 0 100px #ff00d0;}
 }
 
 /* Galería */
@@ -126,23 +119,14 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   margin:0 auto;
 }
 .gallery .service{
-  position:relative;
-  height:180px;
-  border-radius:22px;
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+  position:relative;height:180px;border-radius:22px;
+  background-size:cover;background-position:center;background-repeat:no-repeat;
   box-shadow:0 0 25px rgba(124,77,255,.3);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
   transition: transform .35s, box-shadow .35s;
 }
 .gallery .service span{
-  color:#eaf6ff;
-  font-size:1.05rem;
-  font-weight:600;
+  color:#eaf6ff;font-size:1.05rem;font-weight:600;
   text-shadow:0 0 8px rgba(0,0,0,.7),0 0 12px rgba(124,77,255,.6);
   z-index:2;
 }
@@ -151,7 +135,7 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   box-shadow:0 0 60px rgba(0,229,255,.7);
 }
 
-/* Texto debajo galería con glow y animación de color */
+/* Texto debajo galería */
 .gallery-desc{
   margin-top:20px;
   font-size:1.05rem;
@@ -173,25 +157,16 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
 /* Botón WhatsApp */
 .whatsapp-btn{
   margin:60px auto 0;
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#25D366;
-  color:#fff;
-  font-size:2.2rem;
+  width:90px;height:90px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:#25D366;color:#fff;font-size:2.2rem;
   box-shadow:0 0 25px rgba(0,229,255,.7), 0 0 50px rgba(124,77,255,.5);
-  text-decoration:none;
-  transition: transform .35s, box-shadow .35s;
+  text-decoration:none;transition: transform .35s, box-shadow .35s;
   position:relative;
 }
 .whatsapp-btn::before{
   content:"";
-  position:absolute;
-  inset:-8px;
-  border-radius:50%;
+  position:absolute;inset:-8px;border-radius:50%;
   box-shadow:0 0 25px rgba(0,229,255,.7), 0 0 50px rgba(124,77,255,.5);
   animation: pulse 2s infinite;
 }
@@ -204,31 +179,21 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
 
 /* Sobre nosotros */
 .about{
-  max-width:900px;
-  margin:100px auto 0;
-  line-height:1.8;
-  color:var(--muted);
-  font-size:1.05rem;
-  text-align:center;
+  max-width:900px;margin:100px auto 0;line-height:1.8;color:var(--muted);
+  font-size:1.05rem;text-align:center;
 }
 .about h2{
-  font-size:2rem;
-  color:var(--blue);
-  margin-bottom:20px;
+  font-size:2rem;color:var(--blue);margin-bottom:20px;
   text-shadow:0 0 10px var(--blue),0 0 20px var(--violet);
 }
 
 /* Contacto */
 .contact{
-  margin:80px 0;
-  text-align:center;
+  margin:80px 0;text-align:center;
 }
 .contact a{
-  display:inline-block;
-  margin:0 15px;
-  font-size:1.1rem;
-  color:var(--blue);
-  text-decoration:none;
+  display:inline-block;margin:0 15px;font-size:1.1rem;
+  color:var(--blue);text-decoration:none;
   transition: color .3s, text-shadow .3s;
 }
 .contact a:hover{
@@ -238,21 +203,10 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
 
 /* Footer */
 footer{
-  padding:60px 20px;
-  text-align:center;
-  background:#060a16;
-  margin-top:120px;
+  padding:60px 20px;text-align:center;background:#060a16;margin-top:120px;
 }
-footer p{
-  color:var(--muted);
-  font-size:.95rem;
-  margin-top:14px;
-}
-footer a{
-  color:var(--blue);
-  text-decoration:none;
-  margin:0 10px;
-}
+footer p{color:var(--muted);font-size:.95rem;margin-top:14px;}
+footer a{color:var(--blue);text-decoration:none;margin:0 10px;}
 
 @media(max-width:600px){
   .hero h1{font-size:3rem;}
