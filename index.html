@@ -15,214 +15,63 @@
   --muted:#a8b2d1;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI',system-ui,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif;}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 
-body{
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-}
+.background{position:fixed;inset:0;z-index:-1;background:
+radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
+radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
+radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
+animation:bgMove 18s ease-in-out infinite alternate;}
+@keyframes bgMove{from{filter:hue-rotate(0deg);}to{filter:hue-rotate(40deg);}}
 
-/* ===== FONDO ANIMADO ===== */
-.background{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
-    radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
-  animation:bgMove 16s ease-in-out infinite alternate;
-}
+header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(8,12,26,.7);backdrop-filter:blur(14px);z-index:10;}
+.logo{font-size:1.4rem;letter-spacing:.15em;text-shadow:0 0 18px var(--blue),0 0 30px var(--violet);} 
 
-@keyframes bgMove{
-  from{filter:hue-rotate(0deg);}
-  to{filter:hue-rotate(45deg);}
-}
+.burger{width:34px;height:24px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}
+.burger span{height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));border-radius:4px;box-shadow:0 0 14px var(--blue);transition:.35s;}
+.burger:hover span{box-shadow:0 0 18px var(--blue),0 0 35px var(--violet);} 
 
-/* ===== HEADER ===== */
-header{
-  position:fixed;
-  top:0;left:0;right:0;
-  height:72px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 26px;
-  background:rgba(8,12,26,.7);
-  backdrop-filter:blur(12px);
-  z-index:10;
-}
-
-.logo{
-  font-size:1.4rem;
-  letter-spacing:.12em;
-  text-shadow:
-    0 0 12px var(--blue),
-    0 0 25px var(--violet);
-}
-
-/* ===== HAMBURGUESA NEON ===== */
-.burger{
-  width:32px;
-  height:24px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  cursor:pointer;
-}
-
-.burger span{
-  height:3px;
-  background:linear-gradient(90deg,var(--blue),var(--violet));
-  border-radius:4px;
-  box-shadow:0 0 12px var(--blue);
-  transition:.4s ease;
-}
-
-.burger:hover span{
-  box-shadow:
-    0 0 15px var(--blue),
-    0 0 30px var(--violet);
-}
-
-/* ===== MENU ===== */
-.menu{
-  position:fixed;
-  top:0;
-  right:-100%;
-  width:300px;
-  height:100vh;
-  background:#060a16;
-  padding:120px 30px;
-  transition:.45s ease;
-  z-index:9;
-}
-
+.menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:#060a16;padding:120px 30px;transition:.45s ease;z-index:9;}
 .menu.active{right:0;}
+.menu a{display:block;margin-bottom:34px;font-size:1.15rem;text-decoration:none;color:var(--text);} 
+.menu a:hover{color:var(--blue);text-shadow:0 0 12px var(--blue);} 
 
-.menu a{
-  display:block;
-  margin-bottom:32px;
-  font-size:1.15rem;
-  text-decoration:none;
-  color:var(--text);
-  opacity:.9;
-  animation:fadeIn .5s ease forwards;
-}
+section{padding:120px 20px;text-align:center;}
 
-.menu a:hover{
-  color:var(--blue);
-  text-shadow:0 0 12px var(--blue);
-}
+.hero{min-height:100vh;padding-top:160px;}
+.hero h1{font-size:3.8rem;letter-spacing:.2em;text-shadow:0 0 30px rgba(0,229,255,.9),0 0 60px rgba(124,77,255,.7);} 
+.hero p{margin-top:22px;font-size:1.2rem;color:var(--muted);} 
 
-@keyframes fadeIn{
-  from{opacity:0;transform:translateX(25px);}
-  to{opacity:1;transform:translateX(0);}
-}
+.hero-actions{margin-top:60px;display:flex;justify-content:center;gap:26px;flex-wrap:wrap;}
+.hero-actions a{padding:16px 30px;border-radius:20px;background:rgba(255,255,255,.06);color:var(--text);text-decoration:none;box-shadow:0 0 30px rgba(0,229,255,.45);transition:.35s;} 
+.hero-actions a:hover{transform:translateY(-10px);box-shadow:0 0 50px rgba(0,229,255,.9);} 
 
-/* ===== HOME ===== */
-.home{
-  min-height:100vh;
-  padding:150px 20px 90px;
-  text-align:center;
-  animation:homeFloat 18s ease-in-out infinite alternate;
-  position:relative;
-}
+.primary-btn{display:inline-block;margin-top:60px;padding:16px 48px;border-radius:36px;background:linear-gradient(120deg,var(--blue),var(--violet));color:#000;font-weight:600;text-decoration:none;box-shadow:0 0 45px rgba(0,229,255,.7);} 
 
-@keyframes homeFloat{
-  from{transform:translateY(0);}
-  to{transform:translateY(-20px);}
-}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:40px;}
+.card{padding:28px;border-radius:22px;background:rgba(255,255,255,.05);box-shadow:0 0 35px rgba(124,77,255,.35);transition:.4s;} 
+.card:hover{transform:translateY(-12px);box-shadow:0 0 55px rgba(124,77,255,.8);} 
+.card h3{margin-bottom:10px;}
+.card p{color:var(--muted);} 
 
-.home h1{
-  font-size:3.8rem;
-  letter-spacing:.18em;
-  text-shadow:
-    0 0 22px rgba(0,229,255,.9),
-    0 0 55px rgba(124,77,255,.7);
-}
+.trust{max-width:900px;margin:auto;}
+.trust-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px;margin-top:40px;} 
+.trust-item{padding:22px;border-radius:18px;background:rgba(255,255,255,.04);box-shadow:0 0 25px rgba(0,229,255,.35);} 
 
-.home p{
-  margin-top:20px;
-  font-size:1.2rem;
-  color:var(--muted);
-}
+footer{padding:50px 20px;text-align:center;background:#060a16;} 
+footer p{color:var(--muted);font-size:.95rem;} 
 
-/* ===== ACCESOS ===== */
-.home-access{
-  margin-top:65px;
-  display:flex;
-  justify-content:center;
-  gap:26px;
-  flex-wrap:wrap;
-}
-
-.home-access a{
-  padding:16px 28px;
-  border-radius:18px;
-  background:rgba(255,255,255,.06);
-  color:var(--text);
-  text-decoration:none;
-  box-shadow:0 0 30px rgba(0,229,255,.35);
-  transition:.35s ease;
-}
-
-.home-access a:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 45px rgba(0,229,255,.75);
-}
-
-/* ===== BOTÓN ===== */
-.home-btn{
-  display:inline-block;
-  margin-top:60px;
-  padding:16px 44px;
-  border-radius:32px;
-  background:linear-gradient(120deg,var(--blue),var(--violet));
-  color:#000;
-  font-weight:600;
-  text-decoration:none;
-  box-shadow:0 0 45px rgba(0,229,255,.65);
-}
-
-/* ===== GLOWS FLOTANTES ===== */
-.floating{
-  position:absolute;
-  width:150px;
-  height:150px;
-  background:radial-gradient(circle,var(--blue),transparent 70%);
-  filter:blur(50px);
-  opacity:.45;
-  animation:float 14s ease-in-out infinite alternate;
-}
-
-@keyframes float{
-  from{transform:translateY(0);}
-  to{transform:translateY(-80px);}
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:600px){
-  .home h1{font-size:2.6rem;}
-}
+@media(max-width:600px){.hero h1{font-size:2.5rem;}}
 </style>
 </head>
-
 <body>
 
 <div class="background"></div>
 
 <header>
   <div class="logo">LC MOBILE</div>
-  <div class="burger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </header>
 
 <nav class="menu" id="menu">
@@ -232,30 +81,47 @@ header{
   <a href="tv.html">TV Digital</a>
 </nav>
 
-<section class="home">
-  <div class="floating" style="top:25%;left:15%"></div>
-  <div class="floating" style="top:65%;right:12%"></div>
-  <div class="floating" style="top:45%;left:55%"></div>
-
+<section class="hero">
   <h1>LC MOBILE</h1>
-  <p>Servicio técnico · Venta de celulares · Accesorios · TV Digital</p>
+  <p>Servicio técnico · Venta · Accesorios · TV Digital</p>
 
-  <div class="home-access">
-    <a href="servicio.html">🔧 Servicio Técnico</a>
-    <a href="venta.html">📱 Venta</a>
+  <div class="hero-actions">
+    <a href="servicio.html">🔧 Reparaciones</a>
+    <a href="venta.html">📱 Celulares</a>
     <a href="accesorios.html">🎧 Accesorios</a>
     <a href="tv.html">📺 TV Digital</a>
   </div>
 
-  <a class="home-btn" href="https://wa.me/5492634307686">Agendar consulta</a>
+  <a class="primary-btn" href="https://wa.me/5492634307686">Consultar por WhatsApp</a>
 </section>
 
+<section>
+  <h2>Servicios Destacados</h2>
+  <div class="cards">
+    <div class="card"><h3>Reparación Express</h3><p>Módulos, baterías, conectores y más.</p></div>
+    <div class="card"><h3>Venta Garantizada</h3><p>Equipos nuevos y usados seleccionados.</p></div>
+    <div class="card"><h3>Accesorios Premium</h3><p>Fundas, cargadores, auriculares.</p></div>
+    <div class="card"><h3>TV Digital</h3><p>Instalación y configuración completa.</p></div>
+  </div>
+</section>
+
+<section class="trust">
+  <h2>¿Por qué elegir LC Mobile?</h2>
+  <div class="trust-list">
+    <div class="trust-item">⚡ Reparaciones rápidas</div>
+    <div class="trust-item">🛡️ Garantía real</div>
+    <div class="trust-item">📍 Atención local</div>
+    <div class="trust-item">📲 Soporte directo</div>
+  </div>
+</section>
+
+<footer>
+  <p>LC Mobile © 2026 · Tecnología que vuelve a la vida</p>
+</footer>
+
 <script>
-function toggleMenu(){
-  document.getElementById('menu').classList.toggle('active');
-}
+function toggleMenu(){document.getElementById('menu').classList.toggle('active');}
 </script>
 
 </body>
 </html>
-
