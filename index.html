@@ -28,33 +28,22 @@ animation:bgMove 20s ease-in-out infinite alternate;}
 
 /* Header */
 header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(11,15,34,.7);backdrop-filter:blur(14px);z-index:10;}
-
-/* Logo flotante esquina */
 .logo {
-  font-size:1.5rem;
+  font-size:1.6rem;
   font-weight:bold;
   letter-spacing:.2em;
   color: var(--blue);
   text-shadow: 0 0 10px var(--blue),0 0 20px var(--violet),0 0 30px var(--green);
   animation: logoGlow 3s infinite alternate;
 }
-.logo span {
-  display:block;
-  font-size:0.8rem;
-  color: var(--highlight);
-  text-shadow: 0 0 6px var(--blue);
-}
 @keyframes logoGlow {
   0%{text-shadow:0 0 12px var(--blue),0 0 24px var(--violet);}
-  50%{text-shadow:0 0 20px var(--blue),0 0 40px var(--violet);}
-  100%{text-shadow:0 0 12px var(--green),0 0 30px var(--blue);}
+  50%{text-shadow:0 0 20px var(--green),0 0 40px var(--blue);}
+  100%{text-shadow:0 0 12px var(--violet),0 0 30px var(--blue);}
 }
-
-/* Burger menu */
 .burger{width:34px;height:24px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}
 .burger span{height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));border-radius:4px;box-shadow:0 0 14px var(--blue);transition:.35s;}
 .burger:hover span{box-shadow:0 0 18px var(--blue),0 0 35px var(--violet);} 
-
 .menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:#060a16;padding:120px 30px;transition:.45s ease;z-index:9;}
 .menu.active{right:0;}
 .menu a{display:block;margin-bottom:34px;font-size:1.15rem;text-decoration:none;color:var(--text);} 
@@ -83,12 +72,6 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   0%{text-shadow:0 0 15px var(--blue),0 0 30px var(--violet);}
   50%{text-shadow:0 0 25px var(--green),0 0 50px var(--blue);}
   100%{text-shadow:0 0 15px var(--violet),0 0 40px var(--blue);}
-}
-.hero p{
-  margin-top:20px;
-  font-size:1.3rem;
-  color:var(--highlight);
-  text-shadow:0 0 6px rgba(0,229,255,.6);
 }
 
 /* Galería de servicios */
@@ -124,6 +107,13 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   text-shadow:0 0 8px rgba(0,0,0,.7),0 0 12px rgba(124,77,255,.6);
   z-index:2;
 }
+.gallery .service .desc{
+  position:absolute;
+  bottom:10px;
+  font-size:.9rem;
+  color:var(--highlight);
+  text-shadow:0 0 6px rgba(0,0,0,.7);
+}
 .gallery .service::after{
   content:"";
   position:absolute;
@@ -140,7 +130,7 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   background: linear-gradient(to top, rgba(0,229,255,0.3), transparent 60%);
 }
 
-/* Botón WhatsApp circular */
+/* Botón WhatsApp circular con icono */
 .whatsapp-btn{
   margin:60px auto 0;
   width:90px;
@@ -150,9 +140,8 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   align-items:center;
   justify-content:center;
   background:linear-gradient(135deg,var(--blue),var(--violet));
-  color:#000;
+  color:#fff;
   font-size:2rem;
-  font-weight:bold;
   box-shadow:0 0 25px rgba(0,229,255,.7), 0 0 50px rgba(124,77,255,.5);
   text-decoration:none;
   transition: transform .35s, box-shadow .35s;
@@ -188,6 +177,10 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   margin-bottom:20px;
   text-shadow:0 0 10px var(--blue),0 0 20px var(--violet);
 }
+.about p span{
+  color:var(--highlight);
+  font-weight:bold;
+}
 
 /* Contacto */
 .contact{
@@ -197,20 +190,14 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
 .contact a{
   display:inline-block;
   margin:0 15px;
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--blue),var(--violet));
-  color:#000;
-  font-size:1.5rem;
-  line-height:50px;
-  text-align:center;
-  box-shadow:0 0 20px rgba(0,229,255,.7),0 0 40px rgba(124,77,255,.5);
-  transition: transform .3s, box-shadow .3s;
+  font-size:1.1rem;
+  color:var(--blue);
+  text-decoration:none;
+  transition: color .3s, text-shadow .3s;
 }
 .contact a:hover{
-  transform:scale(1.2);
-  box-shadow:0 0 40px rgba(0,229,255,1),0 0 60px rgba(124,77,255,1);
+  color:var(--highlight);
+  text-shadow:0 0 8px var(--highlight);
 }
 
 /* Footer */
@@ -242,7 +229,7 @@ footer a{
 <div class="background"></div>
 
 <header>
-  <div class="logo">LC TECHNOLOGY <span>Tecnología Innovadora</span></div>
+  <div class="logo">LC TECHNOLOGY</div>
   <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </header>
 
@@ -255,15 +242,26 @@ footer a{
 
 <section class="hero">
   <h1>LC TECHNOLOGY</h1>
-  <p>Tecnología Innovadora</p>
 </section>
 
 <section class="services-gallery">
   <div class="gallery">
-    <div class="service" style="background-image:url('foto1.jpg');"><span>Reparación</span></div>
-    <div class="service" style="background-image:url('foto2.jpg');"><span>Venta de equipos</span></div>
-    <div class="service" style="background-image:url('foto3.jpg');"><span>Accesorios</span></div>
-    <div class="service" style="background-image:url('foto4.jpg');"><span>TV Digital</span></div>
+    <div class="service" style="background-image:url('foto1.jpg');">
+      <span>Reparación</span>
+      <div class="desc">Reparaciones rápidas y confiables</div>
+    </div>
+    <div class="service" style="background-image:url('foto2.jpg');">
+      <span>Venta de equipos</span>
+      <div class="desc">Celulares de última generación</div>
+    </div>
+    <div class="service" style="background-image:url('foto3.jpg');">
+      <span>Accesorios</span>
+      <div class="desc">Complementos y gadgets innovadores</div>
+    </div>
+    <div class="service" style="background-image:url('foto4.jpg');">
+      <span>TV Digital</span>
+      <div class="desc">Entretenimiento para todo el hogar</div>
+    </div>
   </div>
 </section>
 
@@ -272,18 +270,16 @@ footer a{
 <section class="about">
   <h2>Sobre Nosotros</h2>
   <p>
-    Somos una empresa fundada en 2024 con el objetivo de brindar la máxima confianza y comodidad a nuestros clientes. Brindamos atención personalizada, resultados confiables y conformidad total.  
-    LC TECHNOLOGY es gestionada directamente por su fundador, asegurando un trato cercano, profesional y único en cada servicio.
-    <br><br>
-    ⚡ Atención 100% personalizada · 🛡️ Garantía real · 📍 Soporte directo · 📲 Innovación tecnológica
+    Somos una empresa fundada en 2024 con el objetivo de brindar la máxima <span>confianza</span> y <span>comodidad</span> a nuestros clientes. Brindamos atención <span>personalizada</span>, resultados <span>confiables</span> y conformidad total.  
+    LC TECHNOLOGY es gestionada directamente por su fundador, asegurando un trato cercano y profesional.
   </p>
 </section>
 
 <section class="contact">
-  <a href="https://wa.me/5492634307686" target="_blank">💬</a>
-  <a href="https://www.instagram.com/javitolc22/" target="_blank">📸</a>
-  <a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank">📘</a>
-  <a href="mailto:info@lctechnology.com">✉️</a>
+  <a href="https://wa.me/5492634307686" target="_blank">WhatsApp</a>
+  <a href="https://www.instagram.com/javitolc22/" target="_blank">Instagram</a>
+  <a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank">Facebook</a>
+  <a href="mailto:info@lctechnology.com">Correo</a>
 </section>
 
 <footer>
