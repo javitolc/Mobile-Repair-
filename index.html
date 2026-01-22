@@ -11,8 +11,9 @@
 <style>
 :root{
   --bg1:#0b0f22;
-  --bg2:#1b1f3a;
-  --bg3:#0b1a2a;
+  --bg2:#121228;
+  --bg3:#060a16;
+  --bg4:#1a132b;
   --blue:#00e5ff;
   --violet:#7c4dff;
   --green:#18ffb2;
@@ -26,36 +27,36 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', system-ui, sans-serif;}
 body{overflow-x:hidden;}
 
-/* Fondo animado */
+/* Fondo animado oscuro */
 .background{
   position:fixed;
   inset:0;
   z-index:-1;
-  background: radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
-              radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
-              radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
-  animation:bgColorShift 25s ease-in-out infinite alternate;
+  background: radial-gradient(circle at 15% 20%, rgba(0,229,255,.15), transparent 40%),
+              radial-gradient(circle at 85% 30%, rgba(124,77,255,.15), transparent 45%),
+              radial-gradient(circle at 50% 80%, rgba(24,255,178,.1), transparent 50%);
+  animation:bgDarkShift 25s ease-in-out infinite alternate;
 }
-@keyframes bgColorShift{
-  0%{background: radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
-                     radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
-                     radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);}
-  25%{background: radial-gradient(circle at 15% 20%, rgba(124,77,255,.25), transparent 40%),
-                     radial-gradient(circle at 85% 30%, rgba(18,255,178,.25), transparent 45%),
-                     radial-gradient(circle at 50% 80%, rgba(0,229,255,.2), transparent 50%);}
-  50%{background: radial-gradient(circle at 15% 20%, rgba(18,255,178,.25), transparent 40%),
-                     radial-gradient(circle at 85% 30%, rgba(255,0,208,.25), transparent 45%),
-                     radial-gradient(circle at 50% 80%, rgba(124,77,255,.2), transparent 50%);}
-  75%{background: radial-gradient(circle at 15% 20%, rgba(255,0,208,.25), transparent 40%),
-                     radial-gradient(circle at 85% 30%, rgba(0,229,255,.25), transparent 45%),
-                     radial-gradient(circle at 50% 80%, rgba(18,255,178,.2), transparent 50%);}
-  100%{background: radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
-                     radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
-                     radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);}
+@keyframes bgDarkShift{
+  0%{background: radial-gradient(circle at 15% 20%, rgba(0,229,255,.15), transparent 40%),
+                     radial-gradient(circle at 85% 30%, rgba(124,77,255,.15), transparent 45%),
+                     radial-gradient(circle at 50% 80%, rgba(24,255,178,.1), transparent 50%);}
+  25%{background: radial-gradient(circle at 15% 20%, rgba(124,77,255,.15), transparent 40%),
+                     radial-gradient(circle at 85% 30%, rgba(18,255,178,.15), transparent 45%),
+                     radial-gradient(circle at 50% 80%, rgba(0,229,255,.1), transparent 50%);}
+  50%{background: radial-gradient(circle at 15% 20%, rgba(18,255,178,.15), transparent 40%),
+                     radial-gradient(circle at 85% 30%, rgba(255,0,208,.15), transparent 45%),
+                     radial-gradient(circle at 50% 80%, rgba(124,77,255,.1), transparent 50%);}
+  75%{background: radial-gradient(circle at 15% 20%, rgba(255,0,208,.15), transparent 40%),
+                     radial-gradient(circle at 85% 30%, rgba(0,229,255,.15), transparent 45%),
+                     radial-gradient(circle at 50% 80%, rgba(18,255,178,.1), transparent 50%);}
+  100%{background: radial-gradient(circle at 15% 20%, rgba(0,229,255,.15), transparent 40%),
+                     radial-gradient(circle at 85% 30%, rgba(124,77,255,.15), transparent 45%),
+                     radial-gradient(circle at 50% 80%, rgba(24,255,178,.1), transparent 50%);}
 }
 
 /* Header */
-header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(11,15,34,.7);backdrop-filter:blur(14px);z-index:10;}
+header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(6,10,22,.7);backdrop-filter:blur(14px);z-index:10;}
 .logo-container{display:flex;flex-direction:column;}
 .logo {
   font-size:1.6rem;
