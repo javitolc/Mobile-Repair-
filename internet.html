@@ -20,37 +20,45 @@ body{
   font-family:'Segoe UI', system-ui;
   background:var(--bg-main);
   color:var(--text-main);
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
   padding:40px 20px;
+  text-align:center;
 }
 
-/* ===== CONTENEDOR ===== */
-.content{
+/* ===== CONTENIDO ===== */
+.container{
   max-width:900px;
-  margin:0 auto;
-  text-align:center;
 }
 
 /* ===== TITULO ===== */
-.content h1{
-  font-size:2.8rem;
+.container h1{
+  font-size:3rem; /* más grande */
   margin-bottom:30px;
-  text-shadow:0 0 20px var(--neon-blue);
+  color: var(--neon-blue);
+  text-shadow:
+    0 0 5px var(--neon-blue),
+    0 0 10px var(--neon-blue),
+    0 0 20px var(--neon-blue),
+    0 0 30px var(--neon-blue);
 }
 
 /* ===== TEXTO ===== */
-.content p{
-  font-size:1.1rem;
-  color:var(--text-muted);
+.container p{
+  font-size:1.2rem;
   line-height:1.7;
-  text-align:center;
+  color:var(--text-muted);
+  text-align:justify;
   text-shadow:0 0 5px rgba(0,229,255,0.2);
-  margin-bottom:25px;
+  margin-bottom:30px;
 }
 
 /* ===== BOTÓN VOLVER ===== */
 .back-btn{
   display:inline-block;
-  margin-top:20px;
+  margin-bottom:30px; /* para separar del Próximamente */
   color:var(--neon-blue);
   text-decoration:none;
   font-weight:bold;
@@ -67,32 +75,38 @@ body{
 
 /* ===== PRÓXIMAMENTE ===== */
 .coming-soon{
-  font-size:1.5rem;
+  font-size:2rem; /* letra grande */
   color:var(--neon-green);
-  text-shadow:0 0 15px var(--neon-green);
+  text-shadow:
+    0 0 5px var(--neon-green),
+    0 0 10px var(--neon-green),
+    0 0 15px var(--neon-green),
+    0 0 20px var(--neon-green);
   margin-top:20px;
 }
 
+/* ===== RESPONSIVE ===== */
 @media(max-width:600px){
-  .content h1{font-size:2.4rem;}
-  .content p{font-size:1.05rem;}
+  .container h1{font-size:2.4rem;}
+  .container p{font-size:1.05rem;}
+  .coming-soon{font-size:1.5rem;}
 }
 </style>
 </head>
+
 <body>
 
-<div class="content">
+<div class="container">
   <h1>INTERNET ILIMITADO</h1>
+
   <p>
     Implementamos una app exclusiva con acceso a <strong>internet ilimitado</strong> para que nunca te quedes sin navegar ni perderte nada del momento.  
     Disfrutá de tu red sin restricciones, accediendo a tus redes sociales, streaming de música y video, comunicación en tiempo real y todo lo que necesites, donde quieras y cuando quieras.  
     Nuestro servicio está pensado para que tu experiencia sea rápida, estable y segura, ideal tanto para el entretenimiento como para el trabajo o estudio diario.
   </p>
 
-  <!-- BOTÓN VOLVER -->
   <a href="index.html" class="back-btn">⬅ Volver al inicio</a>
 
-  <!-- PRÓXIMAMENTE DEBAJO DEL BOTÓN -->
   <p class="coming-soon">Próximamente</p>
 </div>
 
