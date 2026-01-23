@@ -32,7 +32,7 @@ section.intro{
 }
 section.intro h1{
   font-size:2.8rem;
-  text-shadow:0 0 20px var(--neon-blue);
+  text-shadow:0 0 25px var(--neon-blue);
 }
 section.intro p{
   margin-top:28px;
@@ -49,18 +49,19 @@ section.intro a{
   font-size:1rem;
 }
 section.intro a:hover{
-  text-shadow:0 0 12px var(--neon-blue);
+  text-shadow:0 0 15px var(--neon-blue);
 }
 
 /* ===== SECCIÓN SERVICIOS ===== */
 .services{
   padding:80px 20px 100px;
+  position:relative;
 }
 .services h2{
   text-align:center;
   font-size:2.2rem;
   margin-bottom:55px;
-  text-shadow:0 0 12px rgba(0,229,255,.5);
+  text-shadow:0 0 15px var(--neon-blue);
 }
 .services-container{
   display:grid;
@@ -100,7 +101,17 @@ section.intro a:hover{
   line-height:1.6;
 }
 
-/* ===== MARCAS ATENDIDAS SOLO CUADROS ===== */
+/* ===== SEPARADOR NEON ===== */
+.separator{
+  width:100px;
+  height:2px;
+  background:linear-gradient(90deg,var(--neon-blue),var(--neon-green));
+  margin:40px auto;
+  border-radius:2px;
+  box-shadow:0 0 10px rgba(0,229,255,0.5);
+}
+
+/* ===== MARCAS ATENDIDAS (solo cuadros de texto) ===== */
 .brands{
   padding:70px 20px;
   text-align:center;
@@ -117,21 +128,18 @@ section.intro a:hover{
   gap:25px;
 }
 .brand-name{
-  padding:20px 30px;
-  background: #121b3a;
-  border-radius:15px;
-  font-weight:700;
-  font-size:1.5rem;
-  color: var(--neon-green);
-  box-shadow: 0 8px 20px rgba(0,229,255,0.3), 0 0 15px rgba(124,77,255,0.4);
-  transition: all 0.4s ease;
-  min-width:150px;
-  text-align:center;
+  padding:20px 35px;
+  background:#121b3a;
+  border-radius:12px;
+  font-weight:bold;
+  font-size:1.1rem;
+  color:var(--neon-green);
+  box-shadow:0 5px 15px rgba(0,229,255,.2);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 .brand-name:hover{
-  transform: scale(1.15) translateY(-5px);
-  box-shadow:0 12px 30px rgba(0,229,255,0.6), 0 0 20px rgba(124,77,255,0.6);
-  color: var(--neon-blue);
+  transform: scale(1.1);
+  box-shadow:0 10px 30px rgba(0,229,255,.5);
 }
 
 /* ===== BOTÓN WHATSAPP ===== */
@@ -184,6 +192,8 @@ section.intro a:hover{
   <a href="index.html">⬅ Volver al inicio</a>
 </section>
 
+<div class="separator"></div>
+
 <!-- SERVICIOS -->
 <section class="services">
   <h2>SERVICIOS</h2>
@@ -225,12 +235,14 @@ section.intro a:hover{
       <img src="google.jpg" alt="Cuenta Google">
       <h3>CUENTA GOOGLE</h3>
       <p>
-        Olvidaste la clave o el correo de Google? Te ayudamos a desbloquearlo según el modelo de tu dispositivo, respetando la seguridad y privacidad de tu información. Recuperá acceso a tu celular sin complicaciones.
+        ¿Olvidaste la clave o el correo de Google? Realizamos la eliminación de cuenta según el modelo del dispositivo mediante formateo y reinstalación del sistema, dejándolo listo para su nuevo uso.
       </p>
     </div>
 
   </div>
 </section>
+
+<div class="separator"></div>
 
 <!-- MARCAS ATENDIDAS SOLO CUADROS -->
 <section class="brands">
