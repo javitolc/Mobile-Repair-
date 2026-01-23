@@ -70,12 +70,19 @@ section.intro a:hover{
   margin:auto;
 }
 .service-card{
+  position:relative;
   background:linear-gradient(180deg,#121b3a,#0b1228);
   border-radius:20px;
   padding:25px 20px;
   text-align:center;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition: transform .3s ease, box-shadow .3s ease, opacity .6s ease;
+  opacity:0;
+  transform: translateY(20px);
+}
+.service-card.visible{
+  opacity:1;
+  transform: translateY(0);
 }
 .service-card:hover{
   transform: translateY(-7px);
@@ -100,7 +107,21 @@ section.intro a:hover{
   line-height:1.6;
 }
 
-/* ===== MARCAS ATENDIDAS (solo texto) ===== */
+/* ===== SEPARADOR ===== */
+.separator{
+  height:3px;
+  background:linear-gradient(90deg,#00e5ff,#7c4dff,#18ffb2);
+  margin:50px 0;
+  border-radius:2px;
+  animation: gradientMove 3s linear infinite;
+}
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ===== MARCAS ATENDIDAS SOLO TEXTO ===== */
 .brands{
   padding:70px 20px;
   text-align:center;
@@ -121,14 +142,19 @@ section.intro a:hover{
   background:#121b3a;
   border-radius:12px;
   font-weight:bold;
-  font-size:1rem;
+  font-size:1.2rem;
   color:var(--neon-green);
   box-shadow:0 5px 15px rgba(0,229,255,.2);
   transition: transform .3s ease, box-shadow .3s ease;
+  animation: float 3s ease-in-out infinite;
 }
 .brand-name:hover{
   transform: scale(1.1);
   box-shadow:0 10px 30px rgba(0,229,255,.5);
+}
+@keyframes float{
+  0%,100%{ transform:translateY(0);}
+  50%{ transform:translateY(-5px);}
 }
 
 /* ===== BOTÓN WHATSAPP ===== */
@@ -191,7 +217,6 @@ section.intro a:hover{
       <h3>CAMBIO DE PANTALLA</h3>
       <p>
         ¿Pantalla rota, con toques fantasmas o colores apagados? Reemplazamos por una nueva de alta calidad, dejándola como original. Revisamos brillo y tacto para que tu experiencia sea perfecta. También realizamos pruebas de sensibilidad y calibración para que tu celular quede como nuevo.
-
       </p>
     </div>
 
@@ -200,7 +225,6 @@ section.intro a:hover{
       <h3>REEMPLAZO DE BATERÍA</h3>
       <p>
         Si tu batería se descarga rápido o no dura nada, la cambiamos por una nueva, asegurando la autonomía que tu dispositivo merece. Verificamos ciclos de carga completos y consumo energético para prolongar la vida útil de tu teléfono.
-
       </p>
     </div>
 
@@ -231,6 +255,9 @@ section.intro a:hover{
   </div>
 </section>
 
+<!-- SEPARADOR -->
+<div class="separator"></div>
+
 <!-- MARCAS ATENDIDAS SOLO TEXTO -->
 <section class="brands">
   <h2>Marcas que atendemos</h2>
@@ -244,4 +271,20 @@ section.intro a:hover{
   </div>
 </section>
 
+<!-- WHATSAPP -->
+<a href="https://wa.me/5491123456789" target="_blank" class="whatsapp">💬</a>
 
+<script>
+// Animación fade-in para servicios al cargar
+const serviceCards = document.querySelectorAll('.service-card');
+window.addEventListener('load', () => {
+  serviceCards.forEach((card, i) => {
+    setTimeout(() => {
+      card.classList.add('visible');
+    }, i * 150);
+  });
+});
+</script>
+
+</body>
+</html>
