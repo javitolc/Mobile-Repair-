@@ -237,18 +237,46 @@ section.intro a:hover{
   </div>
 </section>
 
-<!-- MARCAS ATENDIDAS -->
+<!-- MARCAS ATENDIDAS CON CUADRO Y EFECTO NEÓN -->
 <section class="brands">
   <h2>Marcas que atendemos</h2>
-  <div class="brands-container">
-    <img src="samsung.jpg" alt="Samsung">
-    <img src="motorola.jpg" alt="Motorola">
-    <img src="lg.jpg" alt="LG">
-    <img src="huawei.jpg" alt="Huawei">
-    <img src="iphone.jpg" alt="iPhone">
-    <img src="redmi.jpg" alt="Redmi">
+  <div class="brands-container" style="display:flex; justify-content:center; flex-wrap:wrap; gap:20px;">
+
+    <div style="background:#0b1228; padding:10px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+      <img src="samsung.jpg" alt="Samsung" style="width:80px; height:auto; object-fit:contain; transition: all 0.3s ease;">
+    </div>
+
+    <div style="background:#0b1228; padding:10px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+      <img src="motorola.jpg" alt="Motorola" style="width:80px; height:auto; object-fit:contain; transition: all 0.3s ease;">
+    </div>
+
+    <div style="background:#0b1228; padding:10px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+      <img src="lg.jpg" alt="LG" style="width:80px; height:auto; object-fit:contain; transition: all 0.3s ease;">
+    </div>
+
+    <div style="background:#0b1228; padding:10px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+      <img src="huawei.jpg" alt="Huawei" style="width:80px; height:auto; object-fit:contain; transition: all 0.3s ease;">
+    </div>
+
+    <div style="background:#0b1228; padding:10px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+      <img src="iphone.jpg" alt="iPhone" style="width:80px; height:auto; object-fit:contain; transition: all 0.3s ease;">
+    </div>
+
+    <div style="background:#0b1228; padding:10px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+      <img src="redmi.jpg" alt="Redmi" style="width:80px; height:auto; object-fit:contain; transition: all 0.3s ease;">
+    </div>
+
   </div>
 </section>
+
+<!-- EFECTO NEÓN PARA LOGOS -->
+<style>
+.brands-container img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px #00e5ff, 0 0 30px #7c4dff, 0 0 40px #18ffb2;
+}
+</style>
+
 
 
 <!-- WHATSAPP -->
