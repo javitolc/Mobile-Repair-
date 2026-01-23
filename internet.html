@@ -36,7 +36,7 @@ body{
 
 /* ===== TITULO ===== */
 .container h1{
-  font-size:5rem; /* tamaño grande */
+  font-size:3rem;
   margin-bottom:30px;
   color: var(--neon-blue);
   text-shadow:
@@ -59,7 +59,7 @@ body{
 /* ===== BOTÓN VOLVER ===== */
 .back-btn{
   display:inline-block;
-  margin-bottom:50px;
+  margin-bottom:15px; /* menos espacio debajo */
   color:var(--neon-blue);
   text-decoration:none;
   font-weight:bold;
@@ -74,17 +74,9 @@ body{
   box-shadow:0 0 20px rgba(0,229,255,.5);
 }
 
-/* ===== PRÓXIMAMENTE CENTRADO Y NEÓN ===== */
-.coming-soon-container{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  min-height:50vh; /* ocupa medio alto de pantalla */
-}
-
+/* ===== PRÓXIMAMENTE NEÓN ===== */
 .coming-soon{
-  font-size:5rem; /* mismo tamaño que el título */
+  font-size:3rem; /* grande y visible */
   color:var(--neon-green);
   text-shadow:
     0 0 5px var(--neon-green),
@@ -94,6 +86,7 @@ body{
     0 0 40px var(--neon-green),
     0 0 60px var(--neon-green);
   text-align:center;
+  margin-top:0; /* se acerca al botón */
   animation: neonGlow 1.5s ease-in-out infinite alternate;
 }
 
@@ -121,9 +114,9 @@ body{
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:600px){
-  .container h1{font-size:3.5rem;}
+  .container h1{font-size:2.4rem;}
   .container p{font-size:1.05rem;}
-  .coming-soon{font-size:3.5rem;} /* tamaño proporcional en móviles */
+  .coming-soon{font-size:2.5rem;} /* tamaño proporcional en móviles */
 }
 </style>
 </head>
@@ -141,9 +134,7 @@ body{
 
   <a href="index.html" class="back-btn">⬅ Volver al inicio</a>
 
-  <div class="coming-soon-container">
-    <p class="coming-soon">PRÓXIMAMENTE</p>
-  </div>
+  <p class="coming-soon">PRÓXIMAMENTE</p>
 </div>
 
 </body>
