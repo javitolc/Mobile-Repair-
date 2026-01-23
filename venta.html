@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Venta de Teléfonos | LC Mobile</title>
+<title>Venta de Teléfonos | TECHNOLOGY</title>
 
 <style>
 :root{
@@ -34,11 +34,37 @@ body{
 /* ===== TITULOS ===== */
 .container h1, .section-title{
   font-size:2.8rem;
-  margin-bottom:40px;
+  margin-bottom:20px;
   text-shadow:0 0 20px var(--neon-blue);
 }
 .section-title{
   margin-top:80px;
+}
+
+/* ===== TEXTO DESCRIPTIVO ===== */
+.description{
+  max-width:900px;
+  margin:20px auto 40px;
+  font-size:1.1rem;
+  color:var(--text-muted);
+  line-height:1.7;
+  text-align:center;
+  text-shadow:0 0 5px rgba(0,229,255,0.2);
+}
+
+/* ===== BOTON VOLVER ===== */
+.back-button{
+  display:inline-block; 
+  margin-top:20px; 
+  color:var(--neon-blue); 
+  text-decoration:none; 
+  font-weight:bold; 
+  font-size:1rem; 
+  text-shadow:0 0 12px var(--neon-blue);
+  transition:transform .3s ease;
+}
+.back-button:hover{
+  transform:scale(1.05);
 }
 
 /* ===== TARJETAS DE PRODUCTO ===== */
@@ -90,29 +116,6 @@ body{
   margin-top:30px;
 }
 
-/* ===== BOTÓN WHATSAPP ===== */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:linear-gradient(120deg,#25d366,#18ffb2);
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#000;
-  font-size:1.6rem;
-  text-decoration:none;
-  box-shadow:0 0 25px rgba(37,211,102,.7);
-  z-index:5;
-  transition:transform .3s ease;
-}
-.whatsapp:hover{
-  transform:scale(1.1);
-}
-
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .products{
@@ -128,6 +131,14 @@ body{
 
 <div class="container">
   <h1>Teléfonos en Venta</h1>
+
+  <!-- TEXTO DESCRIPTIVO -->
+  <div class="description">
+    En este apartado tenemos todos nuestros dispositivos, tanto nuevos como usados. Cada equipo es probado y revisado por nuestro equipo de técnicos para asegurar que el cliente se lleve un dispositivo funcionando perfectamente. Ofrecemos teléfonos reacondicionados en excelente estado, revisados a fondo, y próximamente incorporaremos dispositivos nuevos. Todos nuestros equipos cuentan con piezas originales y alternativas premium que garantizan durabilidad y rendimiento.
+  </div>
+
+  <!-- BOTÓN VOLVER AL INICIO -->
+  <a href="index.html" class="back-button">⬅ Volver al inicio</a>
 
   <!-- USADOS / REACONDICIONADOS -->
   <h2 class="section-title">Teléfonos Usados / Reacondicionados</h2>
@@ -161,14 +172,7 @@ body{
   <h2 class="section-title">Teléfonos Nuevos</h2>
   <p class="coming-soon">Próximamente</p>
 
-  <a href="index.html" style="display:inline-block; margin-top:40px; color:var(--neon-blue); text-decoration:none; font-weight:bold; font-size:1rem; text-shadow:0 0 12px var(--neon-blue);">
-    ⬅ Volver al inicio
-  </a>
-
 </div>
-
-<!-- WHATSAPP -->
-<a href="https://wa.me/5491123456789" target="_blank" class="whatsapp">💬</a>
 
 </body>
 </html>
