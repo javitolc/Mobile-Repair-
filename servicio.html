@@ -18,7 +18,7 @@
 /* ===== BODY ===== */
 body{
   margin:0;
-  font-family:'Segoe UI',system-ui;
+  font-family:'Segoe UI', system-ui;
   background:var(--bg-main);
   color:var(--text-main);
 }
@@ -64,7 +64,7 @@ section.intro a:hover{
 }
 .services-container{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:30px;
   max-width:1200px;
   margin:auto;
@@ -72,24 +72,19 @@ section.intro a:hover{
 .service-card{
   background:linear-gradient(180deg,#121b3a,#0b1228);
   border-radius:20px;
-  padding:20px;
-  text-align:center;
+  padding:25px 20px;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
-  transition: transform .3s ease;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 .service-card:hover{
   transform: translateY(-7px);
-}
-.service-card img{
-  width:100%;
-  max-height:150px;
-  object-fit:cover;
-  border-radius:15px;
-  margin-bottom:15px;
+  box-shadow:0 25px 60px rgba(0,229,255,0.5);
 }
 .service-card h3{
-  font-size:1.2rem;
+  font-size:1.3rem;
   margin-bottom:12px;
+  color:var(--neon-blue);
+  text-shadow:0 0 10px rgba(0,229,255,.5);
 }
 .service-card p{
   font-size:1rem;
@@ -97,7 +92,7 @@ section.intro a:hover{
   line-height:1.6;
 }
 
-/* ===== MARCAS ===== */
+/* ===== MARCAS ATENDIDAS (solo texto) ===== */
 .brands{
   padding:70px 20px;
   text-align:center;
@@ -109,17 +104,23 @@ section.intro a:hover{
 }
 .brands-container{
   display:flex;
-  justify-content:center;
   flex-wrap:wrap;
-  gap:30px;
+  justify-content:center;
+  gap:25px;
 }
-.brands-container img{
-  width:80px;
-  filter: brightness(0) invert(1);
-  transition: transform .3s ease;
+.brand-name{
+  padding:15px 25px;
+  background:#121b3a;
+  border-radius:12px;
+  font-weight:bold;
+  font-size:1rem;
+  color:var(--neon-green);
+  box-shadow:0 5px 15px rgba(0,229,255,.2);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
-.brands-container img:hover{
-  transform: scale(1.2);
+.brand-name:hover{
+  transform: scale(1.1);
+  box-shadow:0 10px 30px rgba(0,229,255,.5);
 }
 
 /* ===== BOTÓN WHATSAPP ===== */
@@ -148,12 +149,10 @@ section.intro a:hover{
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .services-container{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
   }
 }
 @media(max-width:600px){
-  .services h2{font-size:1.8rem;}
-  .services-container{grid-template-columns:1fr;}
   section.intro h1{font-size:2.4rem;}
   section.intro p{font-size:1.05rem;}
   .brands h2{font-size:1.5rem;}
@@ -169,8 +168,7 @@ section.intro a:hover{
   <p>
     Reparación de celulares con diagnóstico claro, soluciones reales y trabajo garantizado. 
     Cada equipo se revisa y se entrega funcionando correctamente. 
-    Contamos con repuestos de alta calidad y técnicos especializados para asegurar que tu dispositivo vuelva a funcionar como nuevo. 
-    Atención personalizada y rápida para que no pierdas tiempo valioso.
+    Contamos con técnicos especializados y atención rápida y personalizada.
   </p>
   <a href="index.html">⬅ Volver al inicio</a>
 </section>
@@ -180,138 +178,60 @@ section.intro a:hover{
   <h2>SERVICIOS</h2>
   <div class="services-container">
 
-    <!-- CAMBIO DE PANTALLA -->
     <div class="service-card">
-      <img src="pantalla.jpg" alt="Cambio de Pantalla">
       <h3>CAMBIO DE PANTALLA</h3>
       <p>
-        ¿Pantalla rota, con toques fantasmas o colores apagados? Reemplazamos por una nueva de alta calidad,
-        dejándola como original. Revisamos brillo y tacto para que tu experiencia sea perfecta.
-        También realizamos pruebas de sensibilidad y calibración para que tu celular quede como nuevo.
+        ¿Pantalla rota o con toques fantasmas? Reemplazamos por una nueva de alta calidad, dejándola como original.
+        Realizamos pruebas de brillo y sensibilidad para que tu dispositivo quede como nuevo.
       </p>
     </div>
 
-    <!-- REEMPLAZO DE BATERÍA -->
     <div class="service-card">
-      <img src="bateria.jpg" alt="Reemplazo de Batería">
       <h3>REEMPLAZO DE BATERÍA</h3>
       <p>
-        Si tu batería se descarga rápido o no dura nada, la cambiamos por una nueva, asegurando la autonomía
-        que tu dispositivo merece. Verificamos ciclos de carga completos y consumo energético para prolongar
-        la vida útil de tu teléfono.
+        Si tu batería se descarga rápido o no dura nada, la cambiamos por una nueva. Verificamos ciclos de carga y consumo energético
+        para asegurar la autonomía y prolongar la vida útil de tu dispositivo.
       </p>
     </div>
 
-    <!-- PIN DE CARGA -->
     <div class="service-card">
-      <img src="pin-carga.jpg" alt="Pin de Carga">
       <h3>PIN DE CARGA / PLACA DE CARGA</h3>
       <p>
-        ¿Tu celular no carga correctamente o el cable debe colocarse en posiciones extrañas? Reemplazamos
-        el pin de carga o conector, asegurando carga rápida y estable. Revisamos la placa y conexiones internas
-        para un funcionamiento seguro y duradero.
+        ¿Tu celular no carga correctamente? Reemplazamos el pin de carga o conector, asegurando carga rápida y estable.
+        Revisamos conexiones internas para un funcionamiento seguro y duradero.
       </p>
     </div>
 
-    <!-- SOFTWARE / FORMATEO -->
     <div class="service-card">
-      <img src="software.jpg" alt="Software y Formateo">
       <h3>SOFTWARE / FORMATEO</h3>
       <p>
-        Tu teléfono lento o con errores puede volver a funcionar como nuevo. Lo formateamos y optimizamos,
-        eliminando archivos dañinos y mejorando el rendimiento. Además, ofrecemos respaldo de datos importantes
-        y actualización de sistema según modelo.
+        Tu teléfono lento o con errores puede volver a funcionar como nuevo. Formateamos y optimizamos el sistema,
+        eliminando archivos dañinos y mejorando el rendimiento sin perder tus datos importantes.
       </p>
     </div>
 
-    <!-- CUENTA GOOGLE -->
     <div class="service-card">
-      <img src="google.jpg" alt="Cuenta Google">
       <h3>CUENTA GOOGLE</h3>
       <p>
         Olvidaste la clave o el correo de Google? Te ayudamos a desbloquearlo según el modelo de tu dispositivo,
-        respetando la seguridad y privacidad de tu información. Recuperá acceso a tu celular sin complicaciones.
+        respetando la privacidad de tu información y recuperando el acceso a tu celular.
       </p>
     </div>
 
   </div>
 </section>
 
-<!-- MARCAS ATENDIDAS – LOGOS MÁS GRANDES Y CLAROS -->
+<!-- MARCAS ATENDIDAS SOLO TEXTO -->
 <section class="brands">
   <h2>Marcas que atendemos</h2>
-  <div class="brands-container" style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px;">
-
-    <!-- Samsung -->
-    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="samsung.jpg" alt="Samsung" style="max-width:90%; max-height:90%; object-fit:contain;">
-    </div>
-
-    <!-- Motorola -->
-    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="motorola.jpg" alt="Motorola" style="max-width:90%; max-height:90%; object-fit:contain;">
-    </div>
-
-    <!-- LG -->
-    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="lg.jpg" alt="LG" style="max-width:90%; max-height:90%; object-fit:contain;">
-    </div>
-
-    <!-- Huawei -->
-    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="huawei.jpg" alt="Huawei" style="max-width:90%; max-height:90%; object-fit:contain;">
-    </div>
-
-    <!-- iPhone / Apple -->
-    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="apple-logo.png" alt="iPhone" style="max-width:90%; max-height:90%; object-fit:contain;">
-    </div>
-
-    <!-- Redmi -->
-    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="redmi.jpg" alt="Redmi" style="max-width:90%; max-height:90%; object-fit:contain;">
-    </div>
-
+  <div class="brands-container">
+    <div class="brand-name">Samsung</div>
+    <div class="brand-name">Motorola</div>
+    <div class="brand-name">LG</div>
+    <div class="brand-name">Huawei</div>
+    <div class="brand-name">iPhone</div>
+    <div class="brand-name">Redmi</div>
   </div>
 </section>
-
-<!-- EFECTO NEÓN Y VISIBILIDAD -->
-<style>
-.brands-container img {
-  transition: all 0.3s ease;
-  filter: invert(1) brightness(2); /* Hace visibles los logos negros sobre fondo oscuro */
-}
-
-.brands-container img:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px #00e5ff, 0 0 30px #7c4dff, 0 0 40px #18ffb2;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .brands-container div {
-    width:100px;
-    height:100px;
-  }
-  .brands-container img {
-    max-width:85%;
-    max-height:85%;
-  }
-}
-@media(max-width:600px){
-  .brands-container div {
-    width:80px;
-    height:80px;
-  }
-  .brands-container img {
-    max-width:75%;
-    max-height:75%;
-  }
-}
-</style>
-
-
-
-
 
 
