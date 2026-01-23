@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Internet Ilimitado | TECHNOLOGY</title>
+<title>Venta de Teléfonos | LC Mobile</title>
 
 <style>
 :root{
   --bg-main:#080c1a;
   --neon-blue:#00e5ff;
+  --neon-violet:#7c4dff;
   --neon-green:#18ffb2;
   --text-main:#eaf6ff;
   --text-muted:#a8b2d1;
@@ -20,91 +21,157 @@ body{
   font-family:'Segoe UI', system-ui;
   background:var(--bg-main);
   color:var(--text-main);
-  text-align:center;
 }
 
 /* ===== CONTENEDOR PRINCIPAL ===== */
 .container{
-  max-width:900px;
+  max-width:1200px;
   margin:auto;
   padding:80px 20px;
+  text-align:center;
 }
 
 /* ===== TITULOS ===== */
-.container h1{
+.container h1, .section-title{
   font-size:2.8rem;
-  margin-bottom:30px;
+  margin-bottom:20px;
   text-shadow:0 0 20px var(--neon-blue);
 }
+.section-title{
+  margin-top:80px;
+}
 
-/* ===== TEXTO PRINCIPAL ===== */
-.texto{
+/* ===== TEXTO DESCRIPTIVO ===== */
+.description{
+  max-width:900px;
+  margin:20px auto 40px;
   font-size:1.1rem;
-  line-height:1.7;
   color:var(--text-muted);
-  margin-bottom:25px;
-  text-align:justify;
+  line-height:1.7;
+  text-align:center;
   text-shadow:0 0 5px rgba(0,229,255,0.2);
 }
 
-/* ===== BOTÓN VOLVER ===== */
-.back-btn{
-  display:inline-block;
-  margin-top:30px;
-  color:var(--neon-blue);
-  text-decoration:none;
-  font-weight:bold;
-  font-size:1rem;
+/* ===== BOTON VOLVER ===== */
+.back-button{
+  display:inline-block; 
+  margin-top:20px; 
+  color:var(--neon-blue); 
+  text-decoration:none; 
+  font-weight:bold; 
+  font-size:1rem; 
   text-shadow:0 0 12px var(--neon-blue);
-  padding:10px 20px;
-  border-radius:12px;
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition:transform .3s ease;
 }
-.back-btn:hover{
-  transform: scale(1.05);
-  box-shadow:0 0 20px rgba(0,229,255,.5);
+.back-button:hover{
+  transform:scale(1.05);
 }
 
-/* ===== PRÓXIMAMENTE NEÓN ===== */
+/* ===== TARJETAS DE PRODUCTO ===== */
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+  justify-items:center;
+}
+
+.product-card{
+  background:linear-gradient(180deg,#121b3a,#0b1228);
+  border-radius:20px;
+  padding:20px;
+  width:100%;
+  max-width:400px;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.product-card:hover{
+  transform: translateY(-7px);
+  box-shadow:0 25px 60px rgba(0,229,255,0.5);
+}
+.product-card img{
+  width:100%;
+  height:auto; 
+  object-fit:contain; 
+  border-radius:15px;
+  margin-bottom:15px;
+}
+.product-card h3{
+  font-size:1.5rem;
+  margin-bottom:10px;
+  color:var(--neon-blue);
+  text-shadow:0 0 10px rgba(0,229,255,.5);
+}
+.product-card p{
+  font-size:1rem;
+  color:var(--text-muted);
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+/* ===== BLOQUE “PRÓXIMAMENTE” ===== */
 .coming-soon{
-  display:block; /* para asegurarnos de que sea un bloque centrado */
-  font-size:1.8rem;
-  font-weight:bold;
+  font-size:1.5rem;
   color:var(--neon-green);
-  text-align:center;
-  margin-top:40px;
-  text-shadow:
-    0 0 5px #18ffb2,
-    0 0 10px #18ffb2,
-    0 0 15px #18ffb2,
-    0 0 20px #18ffb2,
-    0 0 25px #18ffb2,
-    0 0 30px #18ffb2;
+  text-shadow:0 0 15px var(--neon-green);
+  margin-top:30px;
 }
 
 /* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .products{
+    grid-template-columns:1fr;
+  }
+}
 @media(max-width:600px){
-  .container h1{font-size:2.4rem;}
-  .texto{font-size:1.05rem;}
-  .coming-soon{font-size:1.4rem;}
+  .container h1, .section-title{font-size:2.4rem;}
 }
 </style>
 </head>
-
 <body>
 
 <div class="container">
-  <h1>INTERNET ILIMITADO</h1>
+  <h1>Teléfonos en Venta</h1>
 
-  <p class="texto">
-    Implementamos una app exclusiva con acceso a <strong>internet ilimitado</strong> para que nunca te quedes sin navegar ni perderte nada del momento.  
-    Disfrutá de tu red sin restricciones, accediendo a tus redes sociales, streaming de música y video, comunicación en tiempo real y todo lo que necesites, donde quieras y cuando quieras.  
-    Nuestro servicio está pensado para que tu experiencia sea rápida, estable y segura, ideal tanto para el entretenimiento como para el trabajo o estudio diario.
-  </p>
+  <!-- TEXTO DESCRIPTIVO -->
+  <div class="description">
+    En este apartado tenemos todos nuestros dispositivos, tanto nuevos como usados. Cada equipo es probado y revisado por nuestro equipo de técnicos para asegurar que el cliente se lleve un dispositivo funcionando perfectamente. Ofrecemos teléfonos reacondicionados en excelente estado, revisados a fondo, y próximamente incorporaremos dispositivos nuevos. Todos nuestros equipos cuentan con piezas originales y alternativas premium que garantizan durabilidad y rendimiento.
+  </div>
 
-  <a href="index.html" class="back-btn">⬅ Volver al inicio</a>
+  <!-- BOTÓN VOLVER AL INICIO -->
+  <a href="index.html" class="back-button">⬅ Volver al inicio</a>
 
-  <p class="coming-soon">PRÓXIMAMENTE</p>
+  <!-- USADOS / REACONDICIONADOS -->
+  <h2 class="section-title">Teléfonos Usados / Reacondicionados</h2>
+  <div class="products">
+
+    <!-- Samsung A01 Negro -->
+    <div class="product-card">
+      <img src="a01-negro.jpg" alt="Samsung A01 Negro">
+      <h3>Samsung A01 - Negro</h3>
+      <p>Reacondicionado, en excelente estado.</p>
+      <p><strong>Pantalla:</strong> 5.7" HD+</p>
+      <p><strong>Cámara:</strong> 13MP trasera / 5MP frontal</p>
+      <p><strong>Batería:</strong> 3000 mAh</p>
+      <p><strong>Almacenamiento:</strong> 32GB</p>
+    </div>
+
+    <!-- Samsung A01 Azul -->
+    <div class="product-card">
+      <img src="a01-azul.jpg" alt="Samsung A01 Azul">
+      <h3>Samsung A01 - Azul</h3>
+      <p>Reacondicionado, en excelente estado.</p>
+      <p><strong>Pantalla:</strong> 5.7" HD+</p>
+      <p><strong>Cámara:</strong> 13MP trasera / 5MP frontal</p>
+      <p><strong>Batería:</strong> 3000 mAh</p>
+      <p><strong>Almacenamiento:</strong> 32GB</p>
+    </div>
+
+  </div>
+
+  <!-- NUEVOS -->
+  <h2 class="section-title">Teléfonos Nuevos</h2>
+  <p class="coming-soon">Próximamente</p>
+
 </div>
 
 </body>
