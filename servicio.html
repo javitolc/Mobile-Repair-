@@ -15,7 +15,7 @@
   --text-muted:#a8b2d1;
 }
 
-/* ===== BODY CON GRADIENTE ANIMADO ===== */
+/* ===== BODY CON GRADIENTE ===== */
 body{
   margin:0;
   font-family:'Segoe UI', system-ui;
@@ -24,7 +24,6 @@ body{
   animation: gradientBG 15s ease infinite;
   color:var(--text-main);
 }
-
 @keyframes gradientBG {
   0% {background-position:0% 50%;}
   50% {background-position:100% 50%;}
@@ -61,10 +60,9 @@ section.intro a:hover{
   text-shadow:0 0 12px var(--neon-blue);
 }
 
-/* ===== SECCIÓN SERVICIOS ===== */
+/* ===== SERVICIOS ===== */
 .services{
   padding:80px 20px 100px;
-  position:relative;
 }
 .services h2{
   text-align:center;
@@ -85,7 +83,7 @@ section.intro a:hover{
   border-radius:20px;
   padding:25px 20px;
   text-align:center;
-  box-shadow:0 20px 50px rgba(0,0,0,.6),0 0 15px rgba(124,77,255,.3);
+  box-shadow:0 20px 50px rgba(0,0,0,.6), inset 0 0 10px rgba(255,255,255,0.05);
   transition: transform .3s ease, box-shadow .3s ease, opacity .6s ease;
   opacity:0;
   transform: translateY(30px) scale(0.95);
@@ -127,7 +125,7 @@ section.intro a:hover{
   line-height:1.6;
 }
 
-/* ===== MARCAS ATENDIDAS SOLO TEXTO ===== */
+/* ===== MARCAS PREMIUM SOLO TEXTO ===== */
 .brands{
   padding:70px 20px;
   text-align:center;
@@ -146,20 +144,22 @@ section.intro a:hover{
   gap:25px;
 }
 .brand-name{
-  padding:20px 35px;
-  background:#121b3a;
+  padding:25px 40px;
+  background:linear-gradient(145deg, #121b3a, #0b1228);
   border-radius:15px;
   font-weight:bold;
-  font-size:1.2rem;
+  font-size:1.3rem;
   color:var(--neon-green);
-  box-shadow:0 5px 15px rgba(0,229,255,.2);
-  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow:0 0 15px rgba(0,229,255,.4), 0 5px 20px rgba(0,0,0,.6);
+  border:2px solid rgba(0,229,255,0.2);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
   opacity:0;
   transform: translateY(30px);
 }
 .brand-name:hover{
-  transform: scale(1.15);
-  box-shadow:0 0 30px rgba(0,229,255,.6);
+  transform: scale(1.2);
+  box-shadow:0 0 30px rgba(0,229,255,.7), 0 5px 25px rgba(0,0,0,.7);
+  border-color: rgba(0,229,255,0.8);
 }
 
 /* ===== SEPARADOR ANIMADO ===== */
@@ -217,6 +217,7 @@ section.intro a:hover{
   section.intro h1{font-size:2.4rem;}
   section.intro p{font-size:1.05rem;}
   .brands h2{font-size:1.5rem;}
+  .brand-name{font-size:1.1rem;padding:15px 25px;}
 }
 </style>
 </head>
@@ -284,7 +285,7 @@ section.intro a:hover{
 
 <div class="separator"></div>
 
-<!-- MARCAS ATENDIDAS SOLO TEXTO -->
+<!-- MARCAS PREMIUM SOLO TEXTO -->
 <section class="brands">
   <h2>Marcas que atendemos</h2>
   <div class="brands-container">
