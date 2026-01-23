@@ -9,7 +9,6 @@
 :root{
   --bg-main:#080c1a;
   --neon-blue:#00e5ff;
-  --neon-violet:#7c4dff;
   --neon-green:#18ffb2;
   --text-main:#eaf6ff;
   --text-muted:#a8b2d1;
@@ -46,7 +45,9 @@ body{
   text-shadow:0 0 5px rgba(0,229,255,0.2);
   margin-bottom:25px;
 }
-.content a{
+
+/* ===== BOTÓN VOLVER ===== */
+.back-btn{
   display:inline-block;
   margin-top:20px;
   color:var(--neon-blue);
@@ -58,7 +59,7 @@ body{
   border-radius:12px;
   transition: transform .3s ease, box-shadow .3s ease;
 }
-.content a:hover{
+.back-btn:hover{
   transform: scale(1.05);
   box-shadow:0 0 20px rgba(0,229,255,.5);
 }
@@ -86,8 +87,10 @@ body{
     Nuestro servicio está pensado para que tu experiencia sea rápida, estable y segura, ideal tanto para el entretenimiento como para el trabajo o estudio diario.
   </p>
 
-  <a href="index.html">⬅ Volver al inicio</a>
+  <!-- Botón Volver -->
+  <a href="index.html" class="back-btn">⬅ Volver al inicio</a>
 
+  <!-- Próximamente debajo del botón -->
   <p class="coming-soon">Próximamente</p>
 </div>
 
