@@ -22,14 +22,14 @@ body{
   color:var(--text-main);
   display:flex;
   justify-content:center;
-  align-items:center; /* centrado vertical */
+  align-items:center;
   min-height:100vh;
   padding:20px;
   text-align:center;
-  flex-direction:column; /* columna */
+  flex-direction:column;
 }
 
-/* ===== CONTENEDOR ===== */
+/* ===== CONTENEDOR PRINCIPAL ===== */
 .container{
   max-width:900px;
 }
@@ -51,15 +51,15 @@ body{
   font-size:1.2rem;
   line-height:1.7;
   color:var(--text-muted);
-  text-align:justify;
-  text-shadow:0 0 5px rgba(0,229,255,0.2);
+  text-align:center;
   margin-bottom:30px;
+  text-shadow:0 0 5px rgba(0,229,255,0.2);
 }
 
 /* ===== BOTÓN VOLVER ===== */
 .back-btn{
   display:inline-block;
-  margin-bottom:30px;
+  margin-bottom:50px;
   color:var(--neon-blue);
   text-decoration:none;
   font-weight:bold;
@@ -74,9 +74,17 @@ body{
   box-shadow:0 0 20px rgba(0,229,255,.5);
 }
 
-/* ===== PRÓXIMAMENTE GRANDE NEÓN ===== */
+/* ===== PRÓXIMAMENTE CENTRADO EN PANTALLA ===== */
+.coming-soon-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  min-height:50vh; /* ocupa medio alto de pantalla */
+}
+
 .coming-soon{
-  font-size:3rem; /* tamaño grande como en otras páginas */
+  font-size:4rem; /* grande como querés */
   color:var(--neon-green);
   text-shadow:
     0 0 5px var(--neon-green),
@@ -84,7 +92,6 @@ body{
     0 0 20px var(--neon-green),
     0 0 30px var(--neon-green),
     0 0 40px var(--neon-green);
-  margin-top:20px;
   text-align:center;
 }
 
@@ -92,7 +99,7 @@ body{
 @media(max-width:600px){
   .container h1{font-size:2.4rem;}
   .container p{font-size:1.05rem;}
-  .coming-soon{font-size:2rem;}
+  .coming-soon{font-size:2.5rem;}
 }
 </style>
 </head>
@@ -110,7 +117,9 @@ body{
 
   <a href="index.html" class="back-btn">⬅ Volver al inicio</a>
 
-  <p class="coming-soon">PRÓXIMAMENTE</p>
+  <div class="coming-soon-container">
+    <p class="coming-soon">PRÓXIMAMENTE</p>
+  </div>
 </div>
 
 </body>
