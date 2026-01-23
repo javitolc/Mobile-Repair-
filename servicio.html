@@ -21,6 +21,7 @@ body{
   font-family:'Segoe UI', system-ui;
   background:var(--bg-main);
   color:var(--text-main);
+  overflow-x:hidden;
 }
 
 /* ===== INTRO ===== */
@@ -29,6 +30,7 @@ section.intro{
   margin:auto;
   padding:100px 20px;
   text-align:center;
+  animation: fadeSlide 1s ease forwards;
 }
 section.intro h1{
   font-size:2.8rem;
@@ -47,15 +49,16 @@ section.intro a{
   text-decoration:none;
   font-weight:bold;
   font-size:1rem;
+  transition: transform .3s ease, text-shadow .3s ease;
 }
 section.intro a:hover{
-  text-shadow:0 0 15px var(--neon-blue);
+  transform: scale(1.05);
+  text-shadow:0 0 20px var(--neon-blue);
 }
 
 /* ===== SECCIÓN SERVICIOS ===== */
 .services{
   padding:80px 20px 100px;
-  position:relative;
 }
 .services h2{
   text-align:center;
@@ -76,11 +79,21 @@ section.intro a:hover{
   padding:25px 20px;
   text-align:center;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition: transform .4s ease, box-shadow .4s ease, filter .4s ease;
+  opacity:0;
+  transform: translateY(30px);
+  animation: fadeSlide 1s ease forwards;
 }
+.service-card:nth-child(1){animation-delay:.1s;}
+.service-card:nth-child(2){animation-delay:.2s;}
+.service-card:nth-child(3){animation-delay:.3s;}
+.service-card:nth-child(4){animation-delay:.4s;}
+.service-card:nth-child(5){animation-delay:.5s;}
+
 .service-card:hover{
-  transform: translateY(-7px);
-  box-shadow:0 25px 60px rgba(0,229,255,0.5);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:0 30px 60px rgba(0,229,255,0.5);
+  filter: brightness(1.05);
 }
 .service-card img{
   width:100%;
@@ -93,7 +106,7 @@ section.intro a:hover{
   font-size:1.3rem;
   margin-bottom:12px;
   color:var(--neon-blue);
-  text-shadow:0 0 10px rgba(0,229,255,.5);
+  text-shadow:0 0 12px var(--neon-blue);
 }
 .service-card p{
   font-size:1rem;
@@ -109,9 +122,10 @@ section.intro a:hover{
   margin:40px auto;
   border-radius:2px;
   box-shadow:0 0 10px rgba(0,229,255,0.5);
+  animation: pulse 2s infinite;
 }
 
-/* ===== MARCAS ATENDIDAS (solo cuadros de texto) ===== */
+/* ===== MARCAS ATENDIDAS ===== */
 .brands{
   padding:70px 20px;
   text-align:center;
@@ -135,11 +149,13 @@ section.intro a:hover{
   font-size:1.1rem;
   color:var(--neon-green);
   box-shadow:0 5px 15px rgba(0,229,255,.2);
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition: transform .4s ease, box-shadow .4s ease, text-shadow .4s ease;
+  animation: pulse 2.5s infinite;
 }
 .brand-name:hover{
-  transform: scale(1.1);
-  box-shadow:0 10px 30px rgba(0,229,255,.5);
+  transform: scale(1.15);
+  box-shadow:0 15px 35px rgba(0,229,255,0.5);
+  text-shadow:0 0 8px var(--neon-green);
 }
 
 /* ===== BOTÓN WHATSAPP ===== */
@@ -159,10 +175,26 @@ section.intro a:hover{
   text-decoration:none;
   box-shadow:0 0 25px rgba(37,211,102,.7);
   z-index:5;
-  transition:transform .3s ease;
+  animation: bounce 2s ease infinite;
 }
 .whatsapp:hover{
-  transform:scale(1.1);
+  transform:scale(1.15);
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeSlide{
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 10px rgba(0,229,255,0.5);}
+  50%{box-shadow:0 0 25px rgba(0,229,255,0.8);}
+}
+@keyframes bounce{
+  0%,100%{transform: translateY(0);}
+  50%{transform: translateY(-8px);}
 }
 
 /* ===== RESPONSIVE ===== */
