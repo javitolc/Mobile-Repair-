@@ -41,9 +41,7 @@ body{
   color: var(--neon-blue);
   text-shadow:
     0 0 5px var(--neon-blue),
-    0 0 10px var(--neon-blue),
-    0 0 20px var(--neon-blue),
-    0 0 30px var(--neon-blue);
+    0 0 10px var(--neon-blue);
 }
 
 /* ===== TEXTO ===== */
@@ -53,62 +51,50 @@ body{
   color:var(--text-muted);
   text-align:center;
   margin-bottom:30px;
-  text-shadow:0 0 5px rgba(0,229,255,0.2);
+  text-shadow:0 0 2px rgba(0,229,255,0.2); /* leve */
 }
 
 /* ===== BOTÓN VOLVER ===== */
 .back-btn{
   display:inline-block;
-  margin-bottom:15px; /* menos espacio debajo */
+  margin-bottom:30px;
   color:var(--neon-blue);
   text-decoration:none;
   font-weight:bold;
   font-size:1rem;
-  text-shadow:0 0 12px var(--neon-blue);
+  text-shadow:0 0 5px var(--neon-blue);
   padding:10px 20px;
   border-radius:12px;
   transition: transform .3s ease, box-shadow .3s ease;
 }
 .back-btn:hover{
   transform: scale(1.05);
-  box-shadow:0 0 20px rgba(0,229,255,.5);
+  box-shadow:0 0 15px rgba(0,229,255,.5);
 }
 
-/* ===== PRÓXIMAMENTE NEÓN ===== */
+/* ===== PRÓXIMAMENTE CENTRADO Y NEÓN SUAVE ===== */
 .coming-soon{
-  font-size:3rem; /* grande y visible */
+  font-size:5rem; /* grande */
   color:var(--neon-green);
   text-shadow:
     0 0 5px var(--neon-green),
-    0 0 10px var(--neon-green),
-    0 0 20px var(--neon-green),
-    0 0 30px var(--neon-green),
-    0 0 40px var(--neon-green),
-    0 0 60px var(--neon-green);
+    0 0 10px var(--neon-green); /* menos capas para legibilidad */
   text-align:center;
-  margin-top:0; /* se acerca al botón */
   animation: neonGlow 1.5s ease-in-out infinite alternate;
+  margin-top:20px;
 }
 
-/* ===== ANIMACIÓN NEÓN ===== */
+/* ===== ANIMACIÓN NEÓN SUAVE ===== */
 @keyframes neonGlow {
   from {
     text-shadow:
-      0 0 5px var(--neon-green),
-      0 0 10px var(--neon-green),
-      0 0 20px var(--neon-green),
-      0 0 30px var(--neon-green),
-      0 0 40px var(--neon-green),
-      0 0 60px var(--neon-green);
+      0 0 3px var(--neon-green),
+      0 0 6px var(--neon-green);
   }
   to {
     text-shadow:
-      0 0 10px var(--neon-green),
-      0 0 20px var(--neon-green),
-      0 0 30px var(--neon-green),
-      0 0 40px var(--neon-green),
-      0 0 50px var(--neon-green),
-      0 0 80px var(--neon-green);
+      0 0 6px var(--neon-green),
+      0 0 12px var(--neon-green);
   }
 }
 
@@ -116,7 +102,7 @@ body{
 @media(max-width:600px){
   .container h1{font-size:2.4rem;}
   .container p{font-size:1.05rem;}
-  .coming-soon{font-size:2.5rem;} /* tamaño proporcional en móviles */
+  .coming-soon{font-size:3rem;}
 }
 </style>
 </head>
