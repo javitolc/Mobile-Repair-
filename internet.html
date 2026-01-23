@@ -20,23 +20,24 @@ body{
   font-family:'Segoe UI', system-ui;
   background:var(--bg-main);
   color:var(--text-main);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  text-align:center;
-  padding:20px;
+  padding:40px 20px;
 }
 
-/* ===== CONTENIDO ===== */
+/* ===== CONTENEDOR ===== */
 .content{
   max-width:900px;
+  margin:0 auto;
+  text-align:center;
 }
+
+/* ===== TITULO ===== */
 .content h1{
   font-size:2.8rem;
   margin-bottom:30px;
   text-shadow:0 0 20px var(--neon-blue);
 }
+
+/* ===== TEXTO ===== */
 .content p{
   font-size:1.1rem;
   color:var(--text-muted);
@@ -69,8 +70,9 @@ body{
   font-size:1.5rem;
   color:var(--neon-green);
   text-shadow:0 0 15px var(--neon-green);
-  margin-top:30px;
+  margin-top:20px;
 }
+
 @media(max-width:600px){
   .content h1{font-size:2.4rem;}
   .content p{font-size:1.05rem;}
@@ -87,10 +89,10 @@ body{
     Nuestro servicio está pensado para que tu experiencia sea rápida, estable y segura, ideal tanto para el entretenimiento como para el trabajo o estudio diario.
   </p>
 
-  <!-- Botón Volver -->
+  <!-- BOTÓN VOLVER -->
   <a href="index.html" class="back-btn">⬅ Volver al inicio</a>
 
-  <!-- Próximamente debajo del botón -->
+  <!-- PRÓXIMAMENTE DEBAJO DEL BOTÓN -->
   <p class="coming-soon">Próximamente</p>
 </div>
 
