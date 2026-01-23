@@ -15,14 +15,33 @@
   --text-muted:#a8b2d1;
 }
 
-/* ===== BODY ===== */
+/* ===== FONDO ANIMADO ===== */
 body{
   margin:0;
   font-family:'Segoe UI', system-ui;
   background:var(--bg-main);
   color:var(--text-main);
   overflow-x:hidden;
+  position:relative;
 }
+body::before{
+  content:"";
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: radial-gradient(circle at 20% 30%, rgba(0,229,255,0.1) 0%, transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(124,77,255,0.1) 0%, transparent 30%);
+  z-index:0;
+  animation: moveBackground 20s linear infinite;
+}
+@keyframes moveBackground{
+  0%{background-position:0 0, 100% 100%;}
+  50%{background-position:50% 50%, 50% 50%;}
+  100%{background-position:0 0, 100% 100%;}
+}
+
+/* ===== CONTENIDO SOBRE EL FONDO ===== */
+body > * {position:relative; z-index:1;}
 
 /* ===== INTRO ===== */
 section.intro{
@@ -34,7 +53,7 @@ section.intro{
 }
 section.intro h1{
   font-size:2.8rem;
-  text-shadow:0 0 25px var(--neon-blue);
+  text-shadow:0 0 25px var(--neon-blue), 0 0 50px var(--neon-blue);
 }
 section.intro p{
   margin-top:28px;
@@ -53,7 +72,7 @@ section.intro a{
 }
 section.intro a:hover{
   transform: scale(1.05);
-  text-shadow:0 0 20px var(--neon-blue);
+  text-shadow:0 0 20px var(--neon-blue), 0 0 35px var(--neon-green);
 }
 
 /* ===== SECCIÓN SERVICIOS ===== */
@@ -64,7 +83,7 @@ section.intro a:hover{
   text-align:center;
   font-size:2.2rem;
   margin-bottom:55px;
-  text-shadow:0 0 15px var(--neon-blue);
+  text-shadow:0 0 15px var(--neon-blue), 0 0 25px var(--neon-green);
 }
 .services-container{
   display:grid;
@@ -78,7 +97,7 @@ section.intro a:hover{
   border-radius:20px;
   padding:25px 20px;
   text-align:center;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  box-shadow:0 20px 50px rgba(0,0,0,.6), 0 0 15px rgba(0,229,255,.2) inset;
   transition: transform .4s ease, box-shadow .4s ease, filter .4s ease;
   opacity:0;
   transform: translateY(30px);
@@ -89,10 +108,9 @@ section.intro a:hover{
 .service-card:nth-child(3){animation-delay:.3s;}
 .service-card:nth-child(4){animation-delay:.4s;}
 .service-card:nth-child(5){animation-delay:.5s;}
-
 .service-card:hover{
-  transform: translateY(-10px) scale(1.02);
-  box-shadow:0 30px 60px rgba(0,229,255,0.5);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:0 30px 60px rgba(0,229,255,0.6), 0 0 25px rgba(124,77,255,0.3) inset;
   filter: brightness(1.05);
 }
 .service-card img{
@@ -106,7 +124,7 @@ section.intro a:hover{
   font-size:1.3rem;
   margin-bottom:12px;
   color:var(--neon-blue);
-  text-shadow:0 0 12px var(--neon-blue);
+  text-shadow:0 0 12px var(--neon-blue), 0 0 25px var(--neon-green);
 }
 .service-card p{
   font-size:1rem;
@@ -121,7 +139,7 @@ section.intro a:hover{
   background:linear-gradient(90deg,var(--neon-blue),var(--neon-green));
   margin:40px auto;
   border-radius:2px;
-  box-shadow:0 0 10px rgba(0,229,255,0.5);
+  box-shadow:0 0 10px rgba(0,229,255,.5);
   animation: pulse 2s infinite;
 }
 
@@ -133,7 +151,7 @@ section.intro a:hover{
 .brands h2{
   font-size:2rem;
   margin-bottom:40px;
-  text-shadow:0 0 10px var(--neon-blue);
+  text-shadow:0 0 15px var(--neon-blue),0 0 25px var(--neon-green);
 }
 .brands-container{
   display:flex;
@@ -146,16 +164,16 @@ section.intro a:hover{
   background:#121b3a;
   border-radius:12px;
   font-weight:bold;
-  font-size:1.1rem;
+  font-size:1.2rem;
   color:var(--neon-green);
-  box-shadow:0 5px 15px rgba(0,229,255,.2);
+  box-shadow:0 5px 15px rgba(0,229,255,.3);
   transition: transform .4s ease, box-shadow .4s ease, text-shadow .4s ease;
-  animation: pulse 2.5s infinite;
+  animation: pulse 2s infinite;
 }
 .brand-name:hover{
   transform: scale(1.15);
   box-shadow:0 15px 35px rgba(0,229,255,0.5);
-  text-shadow:0 0 8px var(--neon-green);
+  text-shadow:0 0 10px var(--neon-green);
 }
 
 /* ===== BOTÓN WHATSAPP ===== */
@@ -183,10 +201,7 @@ section.intro a:hover{
 
 /* ===== ANIMACIONES ===== */
 @keyframes fadeSlide{
-  to{
-    opacity:1;
-    transform: translateY(0);
-  }
+  to{opacity:1; transform: translateY(0);}
 }
 @keyframes pulse{
   0%,100%{box-shadow:0 0 10px rgba(0,229,255,0.5);}
@@ -199,9 +214,7 @@ section.intro a:hover{
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
-  .services-container{
-    grid-template-columns:1fr;
-  }
+  .services-container{grid-template-columns:1fr;}
 }
 @media(max-width:600px){
   section.intro h1{font-size:2.4rem;}
@@ -234,41 +247,31 @@ section.intro a:hover{
     <div class="service-card">
       <img src="pantalla.jpg" alt="Cambio de Pantalla">
       <h3>CAMBIO DE PANTALLA</h3>
-      <p>
-        ¿Pantalla rota, con toques fantasmas o colores apagados? Reemplazamos por una nueva de alta calidad, dejándola como original. Revisamos brillo y tacto para que tu experiencia sea perfecta. También realizamos pruebas de sensibilidad y calibración para que tu celular quede como nuevo.
-      </p>
+      <p>¿Pantalla rota, con toques fantasmas o colores apagados? Reemplazamos por una nueva de alta calidad, dejándola como original. Revisamos brillo y tacto para que tu experiencia sea perfecta. También realizamos pruebas de sensibilidad y calibración para que tu celular quede como nuevo.</p>
     </div>
 
     <div class="service-card">
       <img src="bateria.jpg" alt="Reemplazo de Batería">
       <h3>REEMPLAZO DE BATERÍA</h3>
-      <p>
-        Si tu batería se descarga rápido o no dura nada, la cambiamos por una nueva, asegurando la autonomía que tu dispositivo merece. Verificamos ciclos de carga completos y consumo energético para prolongar la vida útil de tu teléfono.
-      </p>
+      <p>Si tu batería se descarga rápido o no dura nada, la cambiamos por una nueva, asegurando la autonomía que tu dispositivo merece. Verificamos ciclos de carga completos y consumo energético para prolongar la vida útil de tu teléfono.</p>
     </div>
 
     <div class="service-card">
       <img src="pin-carga.jpg" alt="Pin de Carga">
       <h3>PIN DE CARGA / PLACA DE CARGA</h3>
-      <p>
-        ¿Tu celular no carga correctamente o el cable debe colocarse en posiciones extrañas? Reemplazamos el pin de carga o conector, asegurando carga rápida y estable. Revisamos la placa y conexiones internas para un funcionamiento seguro y duradero.
-      </p>
+      <p>¿Tu celular no carga correctamente o el cable debe colocarse en posiciones extrañas? Reemplazamos el pin de carga o conector, asegurando carga rápida y estable. Revisamos la placa y conexiones internas para un funcionamiento seguro y duradero.</p>
     </div>
 
     <div class="service-card">
       <img src="software.jpg" alt="Software y Formateo">
       <h3>SOFTWARE / FORMATEO</h3>
-      <p>
-        Tu teléfono lento o con errores puede volver a funcionar como nuevo. Lo formateamos y optimizamos, eliminando archivos dañinos y mejorando el rendimiento. Además, ofrecemos respaldo de datos importantes y actualización de sistema según modelo.
-      </p>
+      <p>Tu teléfono lento o con errores puede volver a funcionar como nuevo. Lo formateamos y optimizamos, eliminando archivos dañinos y mejorando el rendimiento. Además, ofrecemos respaldo de datos importantes y actualización de sistema según modelo.</p>
     </div>
 
     <div class="service-card">
       <img src="google.jpg" alt="Cuenta Google">
       <h3>CUENTA GOOGLE</h3>
-      <p>
-        ¿Olvidaste la clave o el correo de Google? Realizamos la eliminación de cuenta según el modelo del dispositivo mediante formateo y reinstalación del sistema, dejándolo listo para su nuevo uso.
-      </p>
+      <p>¿Olvidaste la clave o el correo de Google? Realizamos la eliminación de cuenta según el modelo del dispositivo mediante formateo y reinstalación del sistema, dejándolo listo para su nuevo uso.</p>
     </div>
 
   </div>
@@ -276,7 +279,7 @@ section.intro a:hover{
 
 <div class="separator"></div>
 
-<!-- MARCAS ATENDIDAS SOLO CUADROS -->
+<!-- MARCAS ATENDIDAS -->
 <section class="brands">
   <h2>Marcas que atendemos</h2>
   <div class="brands-container">
