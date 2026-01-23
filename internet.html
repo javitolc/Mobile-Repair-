@@ -74,7 +74,7 @@ body{
   box-shadow:0 0 20px rgba(0,229,255,.5);
 }
 
-/* ===== PRÓXIMAMENTE CENTRADO EN PANTALLA ===== */
+/* ===== PRÓXIMAMENTE CENTRADO Y NEÓN ===== */
 .coming-soon-container{
   display:flex;
   justify-content:center;
@@ -84,22 +84,46 @@ body{
 }
 
 .coming-soon{
-  font-size:4rem; /* grande como querés */
+  font-size:5rem; /* más grande */
   color:var(--neon-green);
   text-shadow:
     0 0 5px var(--neon-green),
     0 0 10px var(--neon-green),
     0 0 20px var(--neon-green),
     0 0 30px var(--neon-green),
-    0 0 40px var(--neon-green);
+    0 0 40px var(--neon-green),
+    0 0 60px var(--neon-green);
   text-align:center;
+  animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+/* ===== ANIMACIÓN NEÓN ===== */
+@keyframes neonGlow {
+  from {
+    text-shadow:
+      0 0 5px var(--neon-green),
+      0 0 10px var(--neon-green),
+      0 0 20px var(--neon-green),
+      0 0 30px var(--neon-green),
+      0 0 40px var(--neon-green),
+      0 0 60px var(--neon-green);
+  }
+  to {
+    text-shadow:
+      0 0 10px var(--neon-green),
+      0 0 20px var(--neon-green),
+      0 0 30px var(--neon-green),
+      0 0 40px var(--neon-green),
+      0 0 50px var(--neon-green),
+      0 0 80px var(--neon-green);
+  }
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:600px){
   .container h1{font-size:2.4rem;}
   .container p{font-size:1.05rem;}
-  .coming-soon{font-size:2.5rem;}
+  .coming-soon{font-size:3rem;}
 }
 </style>
 </head>
