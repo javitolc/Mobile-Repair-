@@ -17,11 +17,9 @@
   --muted:#a8b2d1;
 }
 
-/* Reset */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif;}
 body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 
-/* Fondo */
 .background{
   position:fixed;
   inset:0;
@@ -32,7 +30,6 @@ body{background:var(--bg);color:var(--text);overflow-x:hidden;}
     radial-gradient(circle at 50% 80%, rgba(24,255,178,.18), transparent 50%);
 }
 
-/* Header */
 header{
   position:fixed;
   top:0;left:0;right:0;
@@ -46,7 +43,6 @@ header{
   z-index:10;
 }
 
-/* Logo izquierdo */
 .logo-left{
   display:flex;
   flex-direction:column;
@@ -65,7 +61,6 @@ header{
   text-shadow:0 0 10px rgba(124,77,255,.8);
 }
 
-/* Burger */
 .burger{
   width:34px;height:24px;
   display:flex;
@@ -80,7 +75,6 @@ header{
   box-shadow:0 0 12px var(--blue);
 }
 
-/* Menu */
 .menu{
   position:fixed;
   top:0;right:-100%;
@@ -101,7 +95,6 @@ header{
 }
 .menu a:hover{color:var(--blue);}
 
-/* Hero */
 .hero{
   min-height:100vh;
   display:flex;
@@ -128,7 +121,6 @@ header{
   pointer-events:none;
 }
 
-/* Galería */
 .services-gallery{padding:80px 20px;text-align:center;}
 .gallery{
   display:grid;
@@ -155,7 +147,6 @@ header{
   letter-spacing:.05em;
 }
 
-/* Texto galería */
 .gallery-desc{
   margin-top:24px;
   font-size:1.05rem;
@@ -163,15 +154,14 @@ header{
   text-shadow:0 0 12px rgba(0,229,255,.6);
 }
 
-/* Workflow */
-.workflow{
+.statement{
+  max-width:900px;
   margin:120px auto;
   text-align:center;
   color:var(--muted);
-  letter-spacing:.08em;
+  line-height:1.8;
 }
 
-/* WhatsApp */
 .whatsapp-btn{
   margin:80px auto;
   width:90px;height:90px;
@@ -184,7 +174,6 @@ header{
 }
 .whatsapp-btn img{width:42px;height:42px;}
 
-/* About */
 .about{
   max-width:900px;
   margin:120px auto;
@@ -197,16 +186,6 @@ header{
   margin-bottom:24px;
 }
 
-/* Statement */
-.statement{
-  max-width:900px;
-  margin:100px auto;
-  text-align:center;
-  color:var(--muted);
-  font-style:italic;
-}
-
-/* Contact */
 .contact{
   text-align:center;
   margin:100px 0;
@@ -219,15 +198,13 @@ header{
   text-decoration:none;
 }
 
-/* Closing */
 .closing-phrase{
   text-align:center;
   margin:120px 0;
-  color:var(--violet);
+  color:var(--text);
   font-size:1.1rem;
 }
 
-/* Footer */
 footer{
   padding:50px 20px;
   text-align:center;
@@ -279,9 +256,10 @@ footer{
   </div>
 </section>
 
-<section class="workflow">
-  Diagnóstico claro · Presupuesto previo · Reparación profesional · Pruebas finales · Entrega con garantía
-</section>
+<div class="statement">
+  Trabajamos con procesos claros, tiempos definidos y comunicación directa,
+  para que sepas en todo momento qué se está haciendo con tu equipo y por qué.
+</div>
 
 <a href="https://wa.me/5492634307686" target="_blank" class="whatsapp-btn">
   <img src="whatsapp-logo.png" alt="WhatsApp">
@@ -291,18 +269,20 @@ footer{
 <h2>Sobre Nosotros</h2>
 <p>
 LC TECHNOLOGY nació en 2024 con la visión de ofrecer soluciones tecnológicas de calidad y confianza a cada cliente.
-Nos enfocamos en brindar un servicio cercano y personalizado, donde cada equipo recibe atención profesional,
-diagnósticos precisos y resultados confiables.<br><br>
-Nuestro compromiso es garantizar experiencias seguras y satisfactorias. Supervisamos cada trabajo de forma directa,
-asegurando un trato transparente y honesto.<br><br>
-Con 2 años de experiencia, miramos hacia el futuro con la intención de seguir creciendo e incorporar nuevas personas
-sin perder el trato personalizado.
+Nos enfocamos en brindar un servicio cercano y personalizado, donde cada equipo que pasa por nuestras manos recibe
+atención profesional, diagnósticos precisos y resultados confiables.
+<br><br>
+Nuestro compromiso no se limita a reparar o vender dispositivos: buscamos garantizar que cada experiencia con
+nosotros sea satisfactoria y segura. Como fundador y principal responsable de LC TECHNOLOGY, superviso personalmente
+cada detalle, asegurando un trato directo, transparente y honesto.
+<br><br>
+Con 2 años de experiencia en tecnología y servicios de reparación, combinamos innovación, conocimiento y dedicación
+para que cada cliente reciba la mejor atención posible. Nuestro objetivo es crear relaciones de confianza duraderas,
+cuidando cada dispositivo como si fuera propio. Miramos hacia el futuro con la intención de seguir creciendo,
+incorporando nuevas herramientas y, a medida que el proyecto avance, sumar más personas al equipo para ampliar nuestra
+capacidad de atención sin perder el trato personalizado que nos caracteriza.
 </p>
 </section>
-
-<div class="statement">
-Trabajamos con procesos claros, tiempos definidos y comunicación directa, para que sepas en todo momento qué se está haciendo con tu equipo y por qué.
-</div>
 
 <section class="contact">
 <h2>Contacto</h2>
