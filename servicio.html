@@ -40,16 +40,23 @@ section.intro p{
   font-size:1.1rem;
   line-height:1.7;
 }
-section.intro a{
+
+/* ===== BOTÓN PS2 ===== */
+.back-button{
   display:inline-block;
   margin-top:40px;
+  padding:10px 25px;
   color:var(--neon-blue);
-  text-decoration:none;
   font-weight:bold;
+  text-decoration:none;
   font-size:1rem;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,229,255,0.5);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
-section.intro a:hover{
-  text-shadow:0 0 12px var(--neon-blue);
+.back-button:hover{
+  transform:scale(1.1);
+  box-shadow:0 10px 25px rgba(0,229,255,0.7);
 }
 
 /* ===== SECCIÓN SERVICIOS ===== */
@@ -83,8 +90,8 @@ section.intro a:hover{
 }
 .service-card img{
   width:100%;
-  height:200px;        /* Altura fija para que se vea completo */
-  object-fit:contain;   /* Se ve toda la imagen sin recorte */
+  height:200px;
+  object-fit:contain;
   border-radius:15px;
   margin-bottom:15px;
 }
@@ -115,7 +122,7 @@ section.intro a:hover{
   text-shadow:0 0 5px rgba(0,229,255,0.2);
 }
 
-/* ===== MARCAS ATENDIDAS SOLO CUADROS ===== */
+/* ===== MARCAS ===== */
 .brands{
   padding:70px 20px;
   text-align:center;
@@ -146,34 +153,9 @@ section.intro a:hover{
   box-shadow:0 10px 30px rgba(0,229,255,.5);
 }
 
-/* ===== BOTÓN WHATSAPP ===== */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:linear-gradient(120deg,#25d366,#18ffb2);
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#000;
-  font-size:1.6rem;
-  text-decoration:none;
-  box-shadow:0 0 25px rgba(37,211,102,.7);
-  z-index:5;
-  transition:transform .3s ease;
-}
-.whatsapp:hover{
-  transform:scale(1.1);
-}
-
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
-  .services-container{
-    grid-template-columns:1fr;
-  }
+  .services-container{grid-template-columns:1fr;}
 }
 @media(max-width:600px){
   section.intro h1{font-size:2.4rem;}
@@ -185,7 +167,6 @@ section.intro a:hover{
 
 <body>
 
-<!-- INTRO -->
 <section class="intro">
   <h1>SERVICIO TÉCNICO</h1>
   <p>
@@ -194,8 +175,12 @@ Cada equipo que ingresa a nuestro servicio técnico es revisado en detalle, eval
 
 Contamos con técnicos especializados y una atención rápida y personalizada, adaptándonos a cada caso y explicando el proceso de reparación de forma clara y sencilla. Nuestro objetivo es que el cliente entienda qué se le realiza a su equipo y se lleve una solución acorde a sus necesidades.
   </p>
-  <a href="index.html">⬅ Volver al inicio</a>
+
+  <a href="index.html" class="back-button">⬅ Volver al inicio</a>
 </section>
+
+</body>
+</html>
 
 <!-- SERVICIOS -->
 <section class="services">
