@@ -54,18 +54,22 @@ body{
 
 /* ===== BOTON VOLVER ===== */
 .back-button{
-  display:inline-block; 
-  margin-top:20px; 
-  color:var(--neon-blue); 
-  text-decoration:none; 
-  font-weight:bold; 
-  font-size:1rem; 
-  text-shadow:0 0 12px var(--neon-blue);
-  transition:transform .3s ease;
+  display:inline-block;
+  margin-top:40px;
+  padding:10px 25px;
+  color:var(--neon-blue);
+  font-weight:bold;
+  text-decoration:none;
+  font-size:1rem;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,229,255,0.5);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 .back-button:hover{
-  transform:scale(1.05);
+  transform:scale(1.1);
+  box-shadow:0 10px 25px rgba(0,229,255,0.7);
 }
+
 
 /* ===== TARJETAS DE PRODUCTO ===== */
 .products{
@@ -143,6 +147,7 @@ Trabajamos con equipos que cuentan con piezas originales y alternativas premium,
 
   <!-- BOTÓN VOLVER AL INICIO -->
   <a href="index.html" class="back-button">⬅ Volver al inicio</a>
+
 
   <!-- USADOS / REACONDICIONADOS -->
   <h2 class="section-title">Teléfonos Usados / Reacondicionados</h2>
