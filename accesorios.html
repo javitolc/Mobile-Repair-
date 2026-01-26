@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Venta de Accesorios | TECHNOLOGY</title>
+<title>Venta de Accesorios | LC TECHNOLOGY</title>
 
 <style>
 :root{
@@ -15,7 +15,6 @@
   --text-muted:#a8b2d1;
 }
 
-/* ===== BODY ===== */
 body{
   margin:0;
   font-family:'Segoe UI', system-ui;
@@ -29,34 +28,41 @@ body{
   padding:20px;
 }
 
-/* ===== CONTENIDO ===== */
 .content{
   max-width:900px;
 }
+
 .content h1{
   font-size:2.8rem;
   margin-bottom:30px;
   text-shadow:0 0 20px var(--neon-blue);
 }
+
 .content p{
   font-size:1.2rem;
   color:var(--text-muted);
   line-height:1.7;
-  text-align:center;
-}
-.content a{
-  display:inline-block;
-  margin-top:40px;
-  color:var(--neon-blue);
-  text-decoration:none;
-  font-weight:bold;
-  font-size:1rem;
-}
-.content a:hover{
-  text-shadow:0 0 12px var(--neon-blue);
 }
 
-/* ===== RESPONSIVE ===== */
+/* BOTÓN IGUAL AL DE PS2 */
+.back-button{
+  display:inline-block;
+  margin-top:40px;
+  padding:10px 25px;
+  color:var(--neon-blue);
+  font-weight:bold;
+  text-decoration:none;
+  font-size:1rem;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,229,255,0.5);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.back-button:hover{
+  transform:scale(1.1);
+  box-shadow:0 10px 25px rgba(0,229,255,0.7);
+}
+
 @media(max-width:600px){
   .content h1{font-size:2.4rem;}
   .content p{font-size:1.05rem;}
@@ -67,21 +73,15 @@ body{
 
 <div class="content">
   <h1>PRÓXIMAMENTE</h1>
+
   <p>
     En esta sección incorporaremos una variedad de accesorios para celulares, pensados para distintos modelos y marcas.
-
-Entre ellos:
-Auriculares
-Fundas
-Cargadores de pared y vehiculares
-Cables USB
-Auriculares inalámbricos
-Vidrios templados
-Parlantes
-
-Y otros accesorios disponibles según stock.
+    Entre ellos: auriculares, fundas, cargadores de pared y vehiculares, cables USB, auriculares inalámbricos,
+    vidrios templados, parlantes y otros accesorios disponibles según stock.
   </p>
-  <a href="index.html">⬅ Volver al inicio</a>
+
+  <!-- BOTÓN IGUAL AL DE PS2 -->
+  <a href="index.html" class="back-button">⬅ Volver al inicio</a>
 </div>
 
 </body>
